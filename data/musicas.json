@@ -1,0 +1,1225 @@
+{
+  "musicas": [
+    {
+      "id": 1,
+      "slug": "sentido",
+      "titulo": "Sentido",
+      "titulo_en": "Attention",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de sentido.",
+      "descricao_en": "Bugle call used for the military command attention.",
+      "audio": "audios/sentido.mp3",
+      "partitura": "partituras/sentido.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "sentido"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 2,
+      "slug": "descansar",
+      "titulo": "Descansar",
+      "titulo_en": "Stand At Ease",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de descansar.",
+      "descricao_en": "Bugle call used for the military command stand at ease.",
+      "audio": "audios/descansar.mp3",
+      "partitura": "partituras/descansar.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "descansar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 3,
+      "slug": "ombro-arma",
+      "titulo": "Ombro Arma",
+      "titulo_en": "Shoulder Arms",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de ombro arma.",
+      "descricao_en": "Bugle call used for the military command shoulder arms.",
+      "audio": "audios/ombro-arma.mp3",
+      "partitura": "partituras/ombro-arma.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "arma"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 4,
+      "slug": "apresentar-arma",
+      "titulo": "Apresentar Arma",
+      "titulo_en": "Present Arms",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de apresentar arma.",
+      "descricao_en": "Bugle call used for the military command present arms.",
+      "audio": "audios/apresentar-arma.mp3",
+      "partitura": "partituras/apresentar-arma.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "arma"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 5,
+      "slug": "descansar-arma",
+      "titulo": "Descansar Arma",
+      "titulo_en": "Order Arms",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de descansar arma.",
+      "descricao_en": "Bugle call used for the military command order arms.",
+      "audio": "audios/descansar-arma.mp3",
+      "partitura": "partituras/descansar-arma.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "arma"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 6,
+      "slug": "cruzar-arma",
+      "titulo": "Cruzar Arma",
+      "titulo_en": "Port Arms",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de cruzar arma.",
+      "descricao_en": "Bugle call used for the military command port arms.",
+      "audio": "audios/cruzar-arma.mp3",
+      "partitura": "partituras/cruzar-arma.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "arma"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 7,
+      "slug": "arma-suspensa",
+      "titulo": "Arma Suspensa",
+      "titulo_en": "Suspended Arms",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de arma suspensa.",
+      "descricao_en": "Bugle call used for the military command suspended arms.",
+      "audio": "audios/arma-suspensa.mp3",
+      "partitura": "partituras/arma-suspensa.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "arma"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 8,
+      "slug": "armar-desarmar-baioneta",
+      "titulo": "Armar e Desarmar Baioneta",
+      "titulo_en": "Fix and Unfix Bayonet",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de armar e desarmar baioneta.",
+      "descricao_en": "Bugle call used for the military command fix and unfix bayonet.",
+      "audio": "audios/armar-desarmar-baioneta.mp3",
+      "partitura": "partituras/armar-desarmar-baioneta.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "baioneta"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 9,
+      "slug": "direita-volver",
+      "titulo": "Direita Volver",
+      "titulo_en": "Right Face",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de direita volver.",
+      "descricao_en": "Bugle call used for the military command right face.",
+      "audio": "audios/direita-volver.mp3",
+      "partitura": "partituras/direita-volver.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "volta"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 10,
+      "slug": "esquerda-volver",
+      "titulo": "Esquerda Volver",
+      "titulo_en": "Left Face",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de esquerda volver.",
+      "descricao_en": "Bugle call used for the military command left face.",
+      "audio": "audios/esquerda-volver.mp3",
+      "partitura": "partituras/esquerda-volver.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "volta"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 11,
+      "slug": "meia-volta-volver",
+      "titulo": "Meia Volta Volver",
+      "titulo_en": "About Face",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de meia volta volver.",
+      "descricao_en": "Bugle call used for the military command about face.",
+      "audio": "audios/meia-volta-volver.mp3",
+      "partitura": "partituras/meia-volta-volver.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "volta"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 12,
+      "slug": "voltas-volver",
+      "titulo": "Voltas Volver",
+      "titulo_en": "Turns Face",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para comandos militares de voltas volver.",
+      "descricao_en": "Bugle call used for military turning commands.",
+      "audio": "audios/voltas-volver.mp3",
+      "partitura": "partituras/voltas-volver.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "volta"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 13,
+      "slug": "ordinario-marche",
+      "titulo": "Ordinário Marche",
+      "titulo_en": "Forward March",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de ordinário marche.",
+      "descricao_en": "Bugle call used for the military command forward march.",
+      "audio": "audios/ordinario-marche.mp3",
+      "partitura": "partituras/ordinario-marche.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "marcha",
+        "comando"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 14,
+      "slug": "acelerado",
+      "titulo": "Acelerado",
+      "titulo_en": "Double Time",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de acelerado.",
+      "descricao_en": "Bugle call used for the military command double time.",
+      "audio": "audios/acelerado.mp3",
+      "partitura": "partituras/acelerado.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "marcha",
+        "acelerado"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 15,
+      "slug": "marcar-passo",
+      "titulo": "Marcar Passo",
+      "titulo_en": "Mark Time",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de marcar passo.",
+      "descricao_en": "Bugle call used for the military command mark time.",
+      "audio": "audios/marcar-passo.mp3",
+      "partitura": "partituras/marcar-passo.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "marcha",
+        "passo"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 16,
+      "slug": "alto",
+      "titulo": "Alto",
+      "titulo_en": "Halt",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de alto.",
+      "descricao_en": "Bugle call used for the military command halt.",
+      "audio": "audios/alto.mp3",
+      "partitura": "partituras/alto.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "alto"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 17,
+      "slug": "firme",
+      "titulo": "Firme",
+      "titulo_en": "Steady",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de firme.",
+      "descricao_en": "Bugle call used for the military command steady.",
+      "audio": "audios/firme.mp3",
+      "partitura": "partituras/firme.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "firme"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 18,
+      "slug": "cobrir",
+      "titulo": "Cobrir",
+      "titulo_en": "Cover",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de cobrir.",
+      "descricao_en": "Bugle call used for the military command cover.",
+      "audio": "audios/cobrir.mp3",
+      "partitura": "partituras/cobrir.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "formatura"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 19,
+      "slug": "olhar-a-direita",
+      "titulo": "Olhar à Direita",
+      "titulo_en": "Eyes Right",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de olhar à direita.",
+      "descricao_en": "Bugle call used for the military command eyes right.",
+      "audio": "audios/olhar-a-direita.mp3",
+      "partitura": "partituras/olhar-a-direita.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "olhar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 20,
+      "slug": "olhar-a-esquerda",
+      "titulo": "Olhar à Esquerda",
+      "titulo_en": "Eyes Left",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de olhar à esquerda.",
+      "descricao_en": "Bugle call used for the military command eyes left.",
+      "audio": "audios/olhar-a-esquerda.mp3",
+      "partitura": "partituras/olhar-a-esquerda.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "olhar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 21,
+      "slug": "olhar-a-frente",
+      "titulo": "Olhar à Frente",
+      "titulo_en": "Eyes Front",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de olhar à frente.",
+      "descricao_en": "Bugle call used for the military command eyes front.",
+      "audio": "audios/olhar-a-frente.mp3",
+      "partitura": "partituras/olhar-a-frente.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "olhar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 22,
+      "slug": "fora-oficial",
+      "titulo": "Fora Oficial",
+      "titulo_en": "Officer Dismissal",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando ou sinalização de fora oficial.",
+      "descricao_en": "Bugle call used for the command or signal officer dismissal.",
+      "audio": "audios/fora-oficial.mp3",
+      "partitura": "partituras/fora-oficial.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "oficial",
+        "comando"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 23,
+      "slug": "a-vontade",
+      "titulo": "À Vontade",
+      "titulo_en": "At Ease",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de à vontade.",
+      "descricao_en": "Bugle call used for the military command at ease.",
+      "audio": "audios/a-vontade.mp3",
+      "partitura": "partituras/a-vontade.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "a-vontade"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 24,
+      "slug": "cessar-a-vontade",
+      "titulo": "Cessar À Vontade",
+      "titulo_en": "Cease At Ease",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de cessar à vontade.",
+      "descricao_en": "Bugle call used for the military command cease at ease.",
+      "audio": "audios/cessar-a-vontade.mp3",
+      "partitura": "partituras/cessar-a-vontade.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "a-vontade"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 25,
+      "slug": "alvorada",
+      "titulo": "Alvorada",
+      "titulo_en": "Reveille",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para sinalização de alvorada.",
+      "descricao_en": "Bugle call used as the reveille signal.",
+      "audio": "audios/alvorada.mp3",
+      "partitura": "partituras/alvorada.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "rotina",
+        "alvorada"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 26,
+      "slug": "silencio",
+      "titulo": "Silêncio",
+      "titulo_en": "Taps",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para sinalização de silêncio.",
+      "descricao_en": "Bugle call used as the taps or silence signal.",
+      "audio": "audios/silencio.mp3",
+      "partitura": "partituras/silencio.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "rotina",
+        "silencio"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 27,
+      "slug": "pernoite",
+      "titulo": "Pernoite",
+      "titulo_en": "Overnight",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para sinalização de pernoite.",
+      "descricao_en": "Bugle call used as the overnight signal.",
+      "audio": "audios/pernoite.mp3",
+      "partitura": "partituras/pernoite.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "rotina",
+        "pernoite"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 28,
+      "slug": "ultima-forma",
+      "titulo": "Última Forma",
+      "titulo_en": "As You Were",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado para o comando militar de última forma.",
+      "descricao_en": "Bugle call used for the military command as you were.",
+      "audio": "audios/ultima-forma.mp3",
+      "partitura": "partituras/ultima-forma.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "comando",
+        "ultima-forma"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 29,
+      "slug": "presidente-vice",
+      "titulo": "Presidente e Vice-Presidente",
+      "titulo_en": "President and Vice President",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em honras ou sinalizações relacionadas ao Presidente e ao Vice-Presidente.",
+      "descricao_en": "Bugle call used in honors or signals related to the President and Vice President.",
+      "audio": "audios/presidente-vice.mp3",
+      "partitura": "partituras/presidente-vice.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "presidente"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 30,
+      "slug": "bandeira-nacional",
+      "titulo": "Bandeira Nacional",
+      "titulo_en": "National Flag",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em cerimônias ou honras relacionadas à Bandeira Nacional.",
+      "descricao_en": "Bugle call used in ceremonies or honors related to the National Flag.",
+      "audio": "audios/bandeira-nacional.mp3",
+      "partitura": "partituras/bandeira-nacional.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "bandeira"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 31,
+      "slug": "continencia-a-bandeira",
+      "titulo": "Continência à Bandeira",
+      "titulo_en": "Salute to the Flag",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em continência à Bandeira Nacional.",
+      "descricao_en": "Bugle call used for the salute to the National Flag.",
+      "audio": "audios/continencia-a-bandeira.mp3",
+      "partitura": "partituras/continencia-a-bandeira.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "bandeira"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 32,
+      "slug": "oficial-general",
+      "titulo": "Oficial-General",
+      "titulo_en": "General Officer",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em honras ou sinalizações relacionadas a oficial-general.",
+      "descricao_en": "Bugle call used in honors or signals related to a general officer.",
+      "audio": "audios/oficial-general.mp3",
+      "partitura": "partituras/oficial-general.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "oficial"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 33,
+      "slug": "comandante",
+      "titulo": "Comandante",
+      "titulo_en": "Commander",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em honras ou sinalizações relacionadas ao comandante.",
+      "descricao_en": "Bugle call used in honors or signals related to the commander.",
+      "audio": "audios/comandante.mp3",
+      "partitura": "partituras/comandante.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "comandante"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 34,
+      "slug": "oficial-superior",
+      "titulo": "Oficial Superior",
+      "titulo_en": "Senior Officer",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em honras ou sinalizações relacionadas a oficial superior.",
+      "descricao_en": "Bugle call used in honors or signals related to a senior officer.",
+      "audio": "audios/oficial-superior.mp3",
+      "partitura": "partituras/oficial-superior.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "oficial"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 35,
+      "slug": "oficial",
+      "titulo": "Oficial",
+      "titulo_en": "Officer",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em honras ou sinalizações relacionadas a oficial.",
+      "descricao_en": "Bugle call used in honors or signals related to an officer.",
+      "audio": "audios/oficial.mp3",
+      "partitura": "partituras/oficial.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "oficial"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 36,
+      "slug": "suboficial",
+      "titulo": "Suboficial",
+      "titulo_en": "Warrant Officer",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em honras ou sinalizações relacionadas a suboficial.",
+      "descricao_en": "Bugle call used in honors or signals related to a warrant officer.",
+      "audio": "audios/suboficial.mp3",
+      "partitura": "partituras/suboficial.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "suboficial"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 37,
+      "slug": "sargento",
+      "titulo": "Sargento",
+      "titulo_en": "Sergeant",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em honras ou sinalizações relacionadas a sargento.",
+      "descricao_en": "Bugle call used in honors or signals related to a sergeant.",
+      "audio": "audios/sargento.mp3",
+      "partitura": "partituras/sargento.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "sargento"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 38,
+      "slug": "sargenteante",
+      "titulo": "Sargenteante",
+      "titulo_en": "Company Sergeant Major",
+      "categoria": "toques-de-corneta",
+      "descricao": "Toque de corneta utilizado em honras ou sinalizações relacionadas ao sargenteante.",
+      "descricao_en": "Bugle call used in honors or signals related to the company sergeant major.",
+      "audio": "audios/sargenteante.mp3",
+      "partitura": "partituras/sargenteante.png",
+      "letra": "",
+      "pdf": "",
+      "tags": [
+        "toque",
+        "corneta",
+        "honras",
+        "sargenteante"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 39,
+      "slug": "hino-nacional",
+      "titulo": "Hino Nacional Brasileiro",
+      "titulo_en": "Brazilian National Anthem",
+      "categoria": "hinos",
+      "descricao": "Hino oficial da República Federativa do Brasil.",
+      "descricao_en": "Official anthem of the Federative Republic of Brazil.",
+      "audio": "audios/hino-nacional.mp3",
+      "partitura": "",
+      "letra": "letras/hino-nacional.txt",
+      "pdf": "pdf/hino-nacional.pdf",
+      "tags": [
+        "hino",
+        "brasil",
+        "nacional",
+        "oficial"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 40,
+      "slug": "hino-dos-aviadores",
+      "titulo": "Hino dos Aviadores",
+      "titulo_en": "Brazilian Aviators Anthem",
+      "categoria": "hinos",
+      "descricao": "Hino relacionado aos aviadores e à tradição da aviação militar brasileira.",
+      "descricao_en": "Anthem related to aviators and the tradition of Brazilian military aviation.",
+      "audio": "audios/hino-dos-aviadores.mp3",
+      "partitura": "",
+      "letra": "letras/hino-dos-aviadores.txt",
+      "pdf": "pdf/hino-dos-aviadores.pdf",
+      "tags": [
+        "hino",
+        "aviadores",
+        "aeronautica",
+        "aviacao"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 41,
+      "slug": "hino-da-aviacao-de-caca-senta-a-pua",
+      "titulo": "Hino da Aviação de Caça (Senta a Púa)",
+      "titulo_en": "Brazilian Fighter Aviation Anthem",
+      "categoria": "hinos",
+      "descricao": "Hino da Aviação de Caça, conhecido pela expressão Senta a Púa.",
+      "descricao_en": "Anthem of Brazilian fighter aviation, known by the expression Senta a Púa.",
+      "audio": "audios/hino-da-aviacao-de-caca-senta-a-pua.mp3",
+      "partitura": "",
+      "letra": "letras/hino-da-aviacao-de-caca-senta-a-pua.txt",
+      "pdf": "pdf/hino-da-aviacao-de-caca-senta-a-pua.pdf",
+      "tags": [
+        "hino",
+        "aviacao-de-caca",
+        "senta-a-pua",
+        "aeronautica"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 42,
+      "slug": "hino-a-bandeira-do-brasil",
+      "titulo": "Hino à Bandeira do Brasil",
+      "titulo_en": "Brazilian Flag Anthem",
+      "categoria": "hinos",
+      "descricao": "Hino dedicado à Bandeira do Brasil, utilizado em contextos cívicos e cerimoniais.",
+      "descricao_en": "Anthem dedicated to the Brazilian Flag, used in civic and ceremonial contexts.",
+      "audio": "audios/hino-a-bandeira-do-brasil.mp3",
+      "partitura": "",
+      "letra": "letras/hino-a-bandeira-do-brasil.txt",
+      "pdf": "pdf/hino-a-bandeira-do-brasil.pdf",
+      "tags": [
+        "hino",
+        "bandeira",
+        "brasil",
+        "civico"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 43,
+      "slug": "hino-da-independencia-do-brasil",
+      "titulo": "Hino da Independência do Brasil",
+      "titulo_en": "Brazilian Independence Anthem",
+      "categoria": "hinos",
+      "descricao": "Hino relacionado à Independência do Brasil, utilizado em solenidades cívicas.",
+      "descricao_en": "Anthem related to Brazilian Independence, used in civic ceremonies.",
+      "audio": "audios/hino-da-independencia-do-brasil.mp3",
+      "partitura": "",
+      "letra": "letras/hino-da-independencia-do-brasil.txt",
+      "pdf": "pdf/hino-da-independencia-do-brasil.pdf",
+      "tags": [
+        "hino",
+        "independencia",
+        "brasil",
+        "civico"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 44,
+      "slug": "hino-da-base-aerea-do-pantanal",
+      "titulo": "Hino da Base Aérea do Pantanal",
+      "titulo_en": "Pantanal Air Base Anthem",
+      "categoria": "hinos",
+      "descricao": "Hino institucional da Base Aérea do Pantanal.",
+      "descricao_en": "Institutional anthem of the Pantanal Air Base.",
+      "audio": "audios/hino-da-base-aerea-do-pantanal.mp3",
+      "partitura": "",
+      "letra": "letras/hino-da-base-aerea-do-pantanal.txt",
+      "pdf": "pdf/hino-da-base-aerea-do-pantanal.pdf",
+      "tags": [
+        "hino",
+        "base-aerea",
+        "pantanal",
+        "aeronautica"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 45,
+      "slug": "cancao-da-infantaria",
+      "titulo": "Canção da Infantaria",
+      "titulo_en": "Infantry Song",
+      "categoria": "cancoes",
+      "descricao": "Canção militar tradicional da Infantaria.",
+      "descricao_en": "Traditional military song of the Infantry.",
+      "audio": "audios/cancao-da-infantaria-da-aeronautica.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-da-infantaria-da-aeronautica.txt",
+      "pdf": "pdf/cancao-da-infantaria.pdf",
+      "tags": [
+        "cancao",
+        "infantaria",
+        "militar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 46,
+      "slug": "cancao-da-intendencia",
+      "titulo": "Canção da Intendência",
+      "titulo_en": "Quartermaster Corps Song",
+      "categoria": "cancoes",
+      "descricao": "Canção militar relacionada à Intendência.",
+      "descricao_en": "Military song related to the Quartermaster Corps.",
+      "audio": "audios/cancao-da-intendencia.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-da-intendencia.txt",
+      "pdf": "pdf/cancao-da-intendencia.pdf",
+      "tags": [
+        "cancao",
+        "intendencia",
+        "militar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 47,
+      "slug": "cancao-da-aviacao-de-transporte-de-tropa",
+      "titulo": "Canção da Aviação de Transporte de Tropa",
+      "titulo_en": "Troop Transport Aviation Song",
+      "categoria": "cancoes",
+      "descricao": "Canção relacionada à Aviação de Transporte de Tropa.",
+      "descricao_en": "Song related to troop transport aviation.",
+      "audio": "audios/cancao-da-aviacao-de-transporte-de-tropa.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-da-aviacao-de-transporte-de-tropa.txt",
+      "pdf": "pdf/cancao-da-aviacao-de-transporte-de-tropa.pdf",
+      "tags": [
+        "cancao",
+        "transporte-de-tropa",
+        "aviacao",
+        "aeronautica"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 48,
+      "slug": "cancao-do-paraquedista",
+      "titulo": "Canção do Paraquedista",
+      "titulo_en": "Paratrooper Song",
+      "categoria": "cancoes",
+      "descricao": "Canção militar relacionada aos paraquedistas.",
+      "descricao_en": "Military song related to paratroopers.",
+      "audio": "audios/cancao-do-paraquedista.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-do-paraquedista.txt",
+      "pdf": "pdf/cancao-do-paraquedista.pdf",
+      "tags": [
+        "cancao",
+        "paraquedista",
+        "militar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 49,
+      "slug": "cancao-do-especialista-da-aeronautica",
+      "titulo": "Canção do Especialista da Aeronáutica",
+      "titulo_en": "Brazilian Air Force Specialist Song",
+      "categoria": "cancoes",
+      "descricao": "Canção relacionada aos especialistas da Aeronáutica.",
+      "descricao_en": "Song related to Brazilian Air Force specialists.",
+      "audio": "audios/cancao-do-especialista-da-aeronautica.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-do-especialista-da-aeronautica.txt",
+      "pdf": "pdf/cancao-do-especialista-da-aeronautica.pdf",
+      "tags": [
+        "cancao",
+        "especialista",
+        "aeronautica"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 50,
+      "slug": "cancao-bandeirantes-do-ar",
+      "titulo": "Canção Bandeirantes do Ar",
+      "titulo_en": "Bandeirantes do Ar Song",
+      "categoria": "cancoes",
+      "descricao": "Canção militar Bandeirantes do Ar.",
+      "descricao_en": "Military song Bandeirantes do Ar.",
+      "audio": "audios/cancao-bandeirantes-do-ar.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-bandeirantes-do-ar.txt",
+      "pdf": "pdf/cancao-bandeirantes-do-ar.pdf",
+      "tags": [
+        "cancao",
+        "bandeirantes-do-ar",
+        "aeronautica"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 51,
+      "slug": "cancao-fibra-de-heroi",
+      "titulo": "Canção Fibra de Herói",
+      "titulo_en": "Fibra de Herói Song",
+      "categoria": "cancoes",
+      "descricao": "Canção militar Fibra de Herói.",
+      "descricao_en": "Military song Fibra de Herói.",
+      "audio": "audios/cancao-fibra-de-heroi.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-fibra-de-heroi.txt",
+      "pdf": "pdf/cancao-fibra-de-heroi.pdf",
+      "tags": [
+        "cancao",
+        "fibra-de-heroi",
+        "militar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 52,
+      "slug": "cancao-do-expedicionario",
+      "titulo": "Canção do Expedicionário",
+      "titulo_en": "Expeditionary Song",
+      "categoria": "cancoes",
+      "descricao": "Canção do Expedicionário, ligada à memória da Força Expedicionária Brasileira.",
+      "descricao_en": "Expeditionary Song, related to the memory of the Brazilian Expeditionary Force.",
+      "audio": "audios/cancao-do-expedicionario.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-do-expedicionario.txt",
+      "pdf": "pdf/cancao-do-expedicionario.pdf",
+      "tags": [
+        "cancao",
+        "expedicionario",
+        "feb",
+        "militar"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 53,
+      "slug": "cancao-da-saude-da-aeronautica",
+      "titulo": "Canção da Saúde da Aeronáutica",
+      "titulo_en": "Brazilian Air Force Health Service Song",
+      "categoria": "cancoes",
+      "descricao": "Canção relacionada ao serviço de saúde da Aeronáutica.",
+      "descricao_en": "Song related to the Brazilian Air Force health service.",
+      "audio": "audios/cancao-da-saude-da-aeronautica.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-da-saude-da-aeronautica.txt",
+      "pdf": "pdf/cancao-da-saude-da-aeronautica.pdf",
+      "tags": [
+        "cancao",
+        "saude",
+        "aeronautica"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 54,
+      "slug": "cancao-da-infantaria-do-exercito",
+      "titulo": "Canção da Infantaria do Exército",
+      "titulo_en": "Infantry Song",
+      "categoria": "cancoes",
+      "descricao": "Canção militar tradicional da Infantaria.",
+      "descricao_en": "Traditional military song of the Infantry.",
+      "audio": "audios/cancao-da-infantaria-do-exercito.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-da-infantaria-do-exercito.txt",
+      "pdf": "pdf/cancao-da-infantaria-do-exercito.pdf",
+      "tags": [
+        "cancao",
+        "infantaria",
+        "exercito"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 55,
+      "slug": "hino-do-3-3-grupo-de-aviacao-de-caca",
+      "titulo": "Hino do 3º/3º GAV",
+      "titulo_en": "Anthem of the 3rd/3rd Fighter Aviation Group",
+      "categoria": "hinos",
+      "descricao": "Hino do 3º/3º Grupo de Aviação, conhecido como Esquadrão Flecha.",
+      "descricao_en": "Anthem of the 3rd/3rd Aviation Group, known as Flecha Squadron.",
+      "audio": "audios/hino-do-3-3-grupo-de-aviacao-de-caca.mp3",
+      "partitura": "",
+      "letra": "letras/hino-do-3-3-grupo-de-aviacao-de-caca.txt",
+      "pdf": "pdf/hino-do-3-3-grupo-de-aviacao-de-caca.pdf",
+      "tags": [
+      "hino",
+      "aviacao-de-caca",
+      "3-3-gav",
+      "aeronautica",
+      "fab"
+      ],
+      "ativo": true
+    },
+    {
+      "id": 56,
+      "slug": "cancao-do-cadete-da-aeronautica",
+      "titulo": "Canção do Cadete da Aeronáutica",
+      "titulo_en": "Air Force Cadet Song",
+      "categoria": "cancoes",
+      "descricao": "Canção Militar do Corpo de Cadetes da Aeronáutica Brasileira",
+      "descricao_en": "Military Song of the Brazilian Air Force Cadet Corps",
+      "audio": "audios/cancao-do-cadete.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-do-cadete.txt",
+      "pdf": "pdf/cancao-do-cadete.pdf",
+      "tags": [
+        "cancao",
+        "aviadores",
+        "cadete",
+        "aeronautica",
+        "fab"
+        ],
+        "ativo": true
+    },
+    {
+      "id": 57,
+      "slug": "cancao-da-engenharia",
+      "titulo": "Canção da Engenharia",
+      "titulo_en": "Engineer Corps Song",
+      "categoria": "cancoes",
+      "descricao": "Canção militar tradicional da Engenharia.",
+      "descricao_en": "Traditional military song of the Engineer Corps.",
+      "audio": "audios/cancao-da-engenharia.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-da-engenharia.txt",
+      "pdf": "pdf/cancao-da-engenharia.pdf",
+      "tags": [
+        "cancao",
+        "engenharia",
+        "militar",
+        "exercito"
+        ],
+        "ativo": true
+    },
+    {
+      "id": 58,
+      "slug": "hino-sar",
+      "titulo": "Hino do 2º/10º GAV",
+      "titulo_en": "Search and Rescue Anthem",
+      "categoria": "hinos",
+      "descricao": "Hino do 2º/10º Grupo de Aviação, conhecido como Esquadrão Pelicano. (Hino Sar)",
+      "descricao_en": "Anthem of the 2nd/10th Aviation Group, known as Pelicano Squadron.(Search and Rescue Anthem)",
+      "audio": "audios/hino-sar.mp3",
+      "partitura": "",
+      "letra": "letras/hino-sar.txt",
+      "pdf": "pdf/hino-sar.pdf",
+      "tags":[
+        "hino",
+        "aviacao",
+        "aviadores",
+        "sar",
+        "pelicano"
+        ],
+        "ativo": true
+    },
+    {
+      "id": 59,
+      "slug": "hino-do-1-15-esquadrao-onca",
+      "titulo": "Hino do 1º/15º GAV",
+      "titulo_en": "Anthem of the 1st/15th Aviation Group",
+      "categoria": "hinos",
+      "descricao": "Hino do 1º/15º Grupo de Aviação, conhecido como Esquadrão Onça.",
+      "descricao_en": "Anthem of the 1st/15th Aviation Group, known as Onça Squadron.",
+      "audio": "audios/hino-do-1-15-esquadrao-onca.mp3",
+      "partitura": "",
+      "letra": "letras/hino-do-1-15-esquadrao-onca.txt",
+      "pdf": "pdf/hino-do-1-15-esquadrao-onca.pdf",
+      "tags": [
+        "hino",
+        "esquadrao-onca",
+        "1-15-gav",
+        "aviacao",
+        "aeronautica",
+        "fab"
+        ],
+        "ativo": true
+    },
+    {
+      "id": 60,
+      "slug": "cancao-do-exercito",
+      "titulo": "Canção do Exército",
+      "titulo_en": "Brazilian Army Song",
+      "categoria": "cancoes",
+      "descricao": "Canção oficial do Exército Brasileiro.",
+      "descricao_en": "Official song of the Brazilian Army.",
+      "audio": "audios/cancao-do-exercito.mp3",
+      "partitura": "",
+      "letra": "letras/cancao-do-exercito.txt",
+      "pdf": "pdf/cancao-do-exercito.pdf",
+      "tags": [
+        "cancao",
+        "exercito",
+        "militar",
+        "eb",
+        "brasil"
+        ],
+        "ativo": true
+    },
+    {
+      "id": 61,
+      "slug": "hino-do-para-sar",
+      "titulo": "Hino do Para-SAR",
+      "titulo_en": "PARA-SAR Anthem",
+      "categoria": "hinos",
+      "descricao": "Hino do Esquadrão Aeroterrestre de Salvamento (PARA-SAR) da Força Aérea Brasileira.",
+      "descricao_en": "Anthem of the Brazilian Air Force Airborne Rescue Squadron (PARA-SAR).",
+      "audio": "audios/hino-do-para-sar.mp3",
+      "partitura": "",
+      "letra": "letras/hino-do-para-sar.txt",
+      "pdf": "pdf/hino-do-para-sar.pdf",
+      "tags": [
+        "hino",
+        "para-sar",
+        "resgate",
+        "salvamento",
+        "aeronautica",
+        "fab"
+        ],
+        "ativo": true
+    }
+  ]
+}
+     

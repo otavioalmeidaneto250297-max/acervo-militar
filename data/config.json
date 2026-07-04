@@ -1,0 +1,18 @@
+{
+"projeto": {
+"nome": "Acervo Musical Militar Brasileiro",
+"sigla": "AMMB",
+"versao": "3.1.0",
+"idioma_padrao": "pt-BR",
+"tema_padrao": "dark"
+},
+"recursos": {
+"favoritos": true,
+"pesquisa": true,
+"modoEscuro": true,
+"internacionalizacao": true,
+"zoomPartitura": true,
+"zoomLetra": true,
+"playerAudio": true
+}
+}

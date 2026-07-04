@@ -1,0 +1,18 @@
+========================================
+AMMB v0.4.3-STABLE
+Data: 02/07/2026
+
+Novidades
+
+• Ordenação A → Z
+• Ordenação Z → A
+• Integração da ordenação com pesquisa
+• Integração da ordenação com filtros de categoria
+• Correção visual do seletor de ordenação
+
+Status
+
+✔ Estável
+✔ Testado
+✔ Pronto para continuação
+========================================

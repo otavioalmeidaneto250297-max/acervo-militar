@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMMB | Acervo Musical Militar Brasileiro</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-logo">AMMB</div>
+
+    <div class="header-title">
+      <h1>Acervo Musical Militar Brasileiro</h1>
+    </div>
+
+    <form class="search-form">
+      <label for="search-input">Pesquisar no acervo</label>
+
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Pesquisar música, toque ou hino">
+    </form>
+  </header>
+
+  <main>
+
+    <div class="archive-toolbar">
+      <div id="results-counter" class="results-counter"></div>
+
+      <div class="sort-container">
+        <label for="sort-select">Ordenar</label>
+
+        <select id="sort-select">
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+        </select>
+      </div>
+    </div>
+
+    <section id="music-container"></section>
+
+  </main>
+
+  <footer>
+    <p>AMMB</p>
+    <p>Versão v0.4.2-STABLE</p>
+    <p>© 2026</p>
+  </footer>
+
+</body>
+</html>

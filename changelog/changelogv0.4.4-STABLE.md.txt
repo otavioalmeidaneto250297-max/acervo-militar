@@ -1,0 +1,16 @@
+AMMB v0.4.4-STABLE
+Data: 02/07/2026
+
+Novidades
+
+• Botão “Visualizar toque” para toques de corneta
+• Botão “Partitura” para hinos, canções e dobrados
+• Botão “Visualizar/Baixar” preparado para PDFs fora da categoria corneta
+• Reorganização segura do app.js
+• Manutenção da pesquisa, filtros, ordenação e modal
+
+Status
+
+✔ Estável
+✔ Testado
+✔ Pronto para continuação

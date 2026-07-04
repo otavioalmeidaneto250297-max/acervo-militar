@@ -1,0 +1,87 @@
+AMMB — Acervo Musical Militar Brasileiro
+
+Histórico Oficial de Versões
+
+----------------------------------------
+
+v0.1.0
+Estrutura inicial do projeto.
+
+v0.2.0
+Primeira organização dos arquivos.
+
+v0.3.0
+Banco de dados JSON implementado.
+
+v0.4.0
+Renderização dinâmica dos cards.
+
+v0.4.1
+Pesquisa em tempo real.
+Filtros por categoria.
+Melhorias visuais.
+
+----------------------------------------
+
+Versão atual:
+v0.4.1
+
+Status:
+Em desenvolvimento.
+
+
+========================================
+AMMB v0.4.2-STABLE
+Data: 02/07/2026
+
+Novidades
+
+• Contador dinâmico de resultados
+• Pesquisa em tempo real refinada
+• Interface reorganizada
+• Estabilização dos filtros
+• Melhor organização visual
+
+Status
+
+✔ Estável
+✔ Testado
+✔ Pronto para continuação da Sprint 5
+
+========================================
+
+========================================
+AMMB v0.4.3-STABLE
+Data: 02/07/2026
+
+Novidades
+
+• Ordenação A → Z
+• Ordenação Z → A
+• Integração da ordenação com pesquisa
+• Integração da ordenação com filtros de categoria
+• Correção visual do seletor de ordenação
+
+Status
+
+✔ Estável
+✔ Testado
+✔ Pronto para continuação
+========================================
+
+AMMB v0.4.4-STABLE
+Data: 02/07/2026
+
+Novidades
+
+• Botão “Visualizar toque” para toques de corneta
+• Botão “Partitura” para hinos, canções e dobrados
+• Botão “Visualizar/Baixar” preparado para PDFs fora da categoria corneta
+• Reorganização segura do app.js
+• Manutenção da pesquisa, filtros, ordenação e modal
+
+Status
+
+✔ Estável
+✔ Testado
+✔ Pronto para continuação

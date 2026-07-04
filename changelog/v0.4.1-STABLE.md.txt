@@ -1,0 +1,17 @@
+AMMB v0.4.1 - STABLE
+Data: 02/07/2026
+
+Funcionalidades concluídas:
+
+- Carregamento dinâmico do musicas.json
+- Pesquisa em tempo real
+- Filtros por categoria
+- Cards dinâmicos
+- Player de áudio
+- Modal para partituras
+- Modal preparado para letras
+- Estrutura de categorias organizada
+- Interface estabilizada
+
+Status:
+Versão considerada estável para continuação do desenvolvimento.

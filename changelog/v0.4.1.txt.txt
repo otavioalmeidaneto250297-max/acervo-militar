@@ -1,0 +1,27 @@
+AMMB
+Versão 0.4.1
+
+Data:
+01/07/2026
+
+Sprint:
+4.1
+
+Implementações
+
+- Pesquisa instantânea
+- Barra de categorias
+- Filtros dinâmicos
+- Botão ativo
+- Melhorias visuais dos cards
+- Organização do CSS
+
+Correções
+
+- Correção dos caminhos dos arquivos
+- Correção do modal
+- Correção da renderização
+
+Status
+
+Versão estável.

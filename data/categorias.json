@@ -1,0 +1,44 @@
+{
+"categorias": [
+{
+"id": 1,
+"slug": "toques-de-corneta",
+"nome": "Toques de Corneta",
+"nome_en": "Bugle Calls",
+"descricao": "Toques militares executados por corneta para comandos, sinais, cerimônias e rotinas.",
+"icone": "icons/toques-de-corneta.svg",
+"ordem": 1,
+"ativa": true
+},
+{
+"id": 2,
+"slug": "hinos",
+"nome": "Hinos",
+"nome_en": "Anthems",
+"descricao": "Obras musicais de caráter solene, patriótico, institucional ou cerimonial.",
+"icone": "icons/hinos.svg",
+"ordem": 2,
+"ativa": true
+},
+{
+"id": 3,
+"slug": "cancoes",
+"nome": "Canções",
+"nome_en": "Songs",
+"descricao": "Canções militares, históricas ou institucionais com finalidade cultural, educativa ou cerimonial.",
+"icone": "icons/cancoes.svg",
+"ordem": 3,
+"ativa": true
+},
+{
+"id": 4,
+"slug": "dobrados",
+"nome": "Dobrados",
+"nome_en": "Military Marches",
+"descricao": "Dobrados e marchas militares utilizados por bandas, cerimônias e formações.",
+"icone": "icons/dobrados.svg",
+"ordem": 4,
+"ativa": true
+}
+]
+}
