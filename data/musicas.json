@@ -138,7 +138,7 @@
         "comando",
         "arma"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 8,
@@ -158,7 +158,7 @@
         "comando",
         "baioneta"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 9,
@@ -422,14 +422,14 @@
     },
     {
       "id": 22,
-      "slug": "fora-oficial",
-      "titulo": "Fora Oficial",
-      "titulo_en": "Officer Dismissal",
+      "slug": "fora-de-forma",
+      "titulo": "Fora de Forma",
+      "titulo_en": "Fall out",
       "categoria": "toques-de-corneta",
-      "descricao": "Toque de corneta utilizado para o comando ou sinalização de fora oficial.",
-      "descricao_en": "Bugle call used for the command or signal officer dismissal.",
-      "audio": "audios/fora-oficial.mp3",
-      "partitura": "partituras/fora-oficial.png",
+      "descricao": "Toque de corneta utilizado para o comando ou sinalização de fora de forma.",
+      "descricao_en": "Bugle call used for the command or signal Fall out.",
+      "audio": "audios/fora-de-forma.mp3",
+      "partitura": "partituras/fora-de-forma.png",
       "letra": "",
       "pdf": "",
       "tags": [
@@ -578,7 +578,7 @@
         "honras",
         "presidente"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 30,
@@ -638,7 +638,7 @@
         "honras",
         "oficial"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 33,
@@ -658,7 +658,7 @@
         "honras",
         "comandante"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 34,
@@ -678,7 +678,7 @@
         "honras",
         "oficial"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 35,
@@ -698,7 +698,7 @@
         "honras",
         "oficial"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 36,
@@ -718,7 +718,7 @@
         "honras",
         "suboficial"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 37,
@@ -738,7 +738,7 @@
         "honras",
         "sargento"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 38,
@@ -758,7 +758,7 @@
         "honras",
         "sargenteante"
       ],
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 39,
