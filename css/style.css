@@ -499,3 +499,49 @@ padding-inline: var(--spacing-md);
         flex: 1;
     }
 }
+
+/* ===========================
+   AJUSTE DO PLAYER E BOTÕES
+=========================== */
+
+.music-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.music-card audio {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.music-actions {
+  width: 100%;
+  padding: 0;
+  margin-top: auto;
+}
+
+.music-actions .btn {
+  width: 100%;
+  min-width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .music-card {
+    padding: 18px;
+  }
+
+  .music-card audio {
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .music-actions .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}
