@@ -8,6 +8,19 @@
   <title>Sobre | Acervo Militar</title>
 
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBWR8G780Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-GBWR8G780Y');
+  </script>
 </head>
 
 <body>
@@ -27,25 +40,6 @@
     </div>
   </header>
 
-  <nav class="main-navigation" aria-label="Navegação principal">
-    <a href="index.html" class="main-navigation-link">Acervo</a>
-
-    <a href="sobre.html" class="main-navigation-link active">
-      Sobre o projeto
-    </a>
-
-    <a href="avaliacao.html" class="main-navigation-link">
-      Avaliação
-    </a>
-
-    <a href="privacidade.html" class="main-navigation-link">
-      Privacidade
-    </a>
-
-    <a href="termos.html" class="main-navigation-link">
-      Termos de Uso
-    </a>
-  </nav>
 
   <main class="about-page">
 
@@ -155,12 +149,23 @@
 
   </main>
 
-  <footer>
+<footer class="site-footer">
+  <div class="footer-brand">
     <p><strong>Acervo Militar</strong></p>
     <p>Plataforma de apoio à instrução musical militar</p>
+  </div>
+  <nav class="footer-navigation" aria-label="Navegação institucional">
+    <a href="index.html">Acervo</a>
+    <a href="sobre.html">Sobre o projeto</a>
+    <a href="avaliacao.html">Avaliação</a>
+    <a href="privacidade.html">Privacidade</a>
+    <a href="termos.html">Termos de Uso</a>
+  </nav>
+  <div class="footer-meta">
     <p>Versão v1.0.0 RC1</p>
     <p>© 2026 — Projeto em avaliação operacional</p>
-  </footer>
+  </div>
+</footer>
 
 </body>
 
