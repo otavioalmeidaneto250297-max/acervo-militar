@@ -689,3 +689,18 @@ footer strong {
     padding: 1.15rem;
   }
 }
+
+/* ===========================
+   BOTÃO TEMPORARIAMENTE INATIVO
+=========================== */
+
+.btn-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  filter: grayscale(0.25);
+}
+
+.btn-disabled:hover {
+  transform: none;
+  filter: grayscale(0.25);
+}
