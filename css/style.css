@@ -545,3 +545,52 @@ padding-inline: var(--spacing-md);
     min-height: 44px;
   }
 }
+
+/* ===========================
+   IDENTIDADE INSTITUCIONAL
+=========================== */
+
+.header-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 7rem;
+  padding: 0.8rem 1rem;
+  text-align: center;
+}
+
+.brand-name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.brand-sigla {
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  opacity: 0.85;
+}
+
+.header-subtitle {
+  margin: -0.7rem 0 1.25rem;
+  color: var(--color-muted);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 600;
+}
+
+footer strong {
+  color: var(--color-text);
+}
+
+@media (max-width: 767px) {
+  .header-logo {
+    min-width: 6.5rem;
+  }
+
+  .header-subtitle {
+    margin-top: -0.35rem;
+  }
+}
