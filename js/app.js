@@ -211,6 +211,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         actions.appendChild(botaoPartitura);
       }
 
+      /*
       if (musica.pdf && musica.categoria !== "toques-de-corneta") {
         const botaoPdf = document.createElement("a");
         botaoPdf.className = "btn";
@@ -220,6 +221,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         botaoPdf.rel = "noopener";
         actions.appendChild(botaoPdf);
       }
+      */
 
       card.appendChild(titulo);
       card.appendChild(categoria);
