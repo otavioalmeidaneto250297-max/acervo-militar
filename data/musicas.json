@@ -1219,6 +1219,28 @@
         "fab"
         ],
         "ativo": true
+    },
+    {
+  "id": 62,
+  "slug": "refrao-incorporacao-a-bandeira-nacional",
+  "titulo": "Refrão - Hino à Bandeira Nacional",
+  "titulo_en": "Brazilian Flag Anthem - Chorus",
+  "categoria": "hinos",
+  "descricao": "Refrão do Hino à Bandeira Nacional, executado durante as cerimônias de incorporação à Bandeira.",
+  "descricao_en": "Chorus of the Brazilian Flag Anthem, performed during flag incorporation ceremonies.",
+  "audio": "audios/refrao-incorporacao-a-bandeira-nacional.mp3",
+  "partitura": "",
+  "letra": "",
+  "pdf": "pdf/refrao-incorporacao-a-bandeira-nacional.pdf",
+  "tags": [
+    "hino",
+    "bandeira",
+    "nacional",
+    "incorporacao",
+    "cerimonia",
+    "patriota"
+  ],
+  "ativo": true
     }
   ]
 }

@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const actions = document.createElement("div");
       actions.className = "music-actions";
 
-      if (musica.letra && musica.categoria !== "toques-de-corneta") {
+      if (musica.letra && musica.letra.trim() !== "" && musica.categoria !== "toques-de-corneta") {
         const botaoLetra = document.createElement("button");
         botaoLetra.className = "btn";
         botaoLetra.type = "button";
