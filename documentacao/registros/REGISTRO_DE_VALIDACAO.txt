@@ -1,0 +1,43 @@
+# Registro de validação do Acervo Militar
+
+## Versão
+
+v1.0.0 RC1
+
+## Início da avaliação operacional
+
+Data: 12/07/2026
+
+## Endereço público
+
+https://otavioalmeidaneto250297-max.github.io/acervo-militar/
+
+## Recursos disponíveis
+
+- Pesquisa no acervo;
+- filtros por categoria;
+- ordenação alfabética;
+- reprodução de áudio;
+- visualização de toques de corneta;
+- leitura de letras de hinos e canções;
+- página institucional;
+- política de privacidade;
+- termos de uso;
+- formulário oficial de avaliação;
+- monitoramento estatístico com Google Analytics.
+
+## Meta inicial
+
+Obter pelo menos 50 avaliações de usuários convidados.
+
+## Público inicial
+
+- Instrutores;
+- músicos militares;
+- corneteiros;
+- alunos de cursos e estágios;
+- demais usuários interessados.
+
+## Observações
+
+A versão encontra-se em avaliação operacional. Durante este período serão priorizadas correções críticas e melhorias de estabilidade.
