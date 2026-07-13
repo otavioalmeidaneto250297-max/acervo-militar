@@ -382,3 +382,37 @@ function fecharModal() {
   if (modal) modal.style.display = "none";
   if (modalBody) modalBody.innerHTML = "";
 }
+
+/* ===========================
+   CONVITE PARA AVALIAÇÃO
+=========================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("evaluation-banner");
+  const dismissButton = document.getElementById("evaluation-dismiss");
+  const evaluationLink = document.getElementById("evaluation-link");
+
+  if (!banner || !dismissButton || !evaluationLink) {
+    return;
+  }
+
+  const storageKey = "acervoMilitarAvaliacaoAdiadaAte";
+  const sevenDaysInMilliseconds = 7 * 24 * 60 * 60 * 1000;
+
+  const postponedUntil = Number(localStorage.getItem(storageKey) || 0);
+
+  if (postponedUntil > Date.now()) {
+    banner.classList.add("is-hidden");
+  }
+
+  dismissButton.addEventListener("click", () => {
+    const nextDisplayDate = Date.now() + sevenDaysInMilliseconds;
+
+    localStorage.setItem(storageKey, String(nextDisplayDate));
+    banner.classList.add("is-hidden");
+  });
+
+  evaluationLink.addEventListener("click", () => {
+    banner.classList.add("is-hidden");
+  });
+});

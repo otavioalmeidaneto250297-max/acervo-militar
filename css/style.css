@@ -746,3 +746,119 @@ footer strong {
     gap: 0.65rem;
   }
 }
+
+/* ===========================
+   CONVITE PARA AVALIAÇÃO
+=========================== */
+
+.evaluation-banner {
+  width: min(100% - 2rem, var(--max-width));
+  margin: 1.5rem auto 0;
+  border: 1px solid rgba(37, 99, 235, 0.55);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.18),
+      rgba(30, 41, 59, 0.96)
+    );
+  box-shadow: var(--shadow-card);
+}
+
+.evaluation-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 1.5rem;
+}
+
+.evaluation-banner-text {
+  max-width: 720px;
+}
+
+.evaluation-banner-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #93c5fd;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.evaluation-banner h2 {
+  margin: 0 0 0.35rem;
+  color: var(--color-text);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+}
+
+.evaluation-banner p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.evaluation-banner-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.evaluation-primary-button {
+  white-space: nowrap;
+}
+
+.evaluation-secondary-button {
+  min-height: 2.5rem;
+  padding: 0.65rem 0.85rem;
+  border: none;
+  background: transparent;
+  color: var(--color-muted);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    color var(--transition-base),
+    background var(--transition-base);
+}
+
+.evaluation-secondary-button:hover,
+.evaluation-secondary-button:focus-visible {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.evaluation-banner.is-hidden {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .evaluation-banner {
+    width: min(100% - 1rem, var(--max-width));
+  }
+
+  .evaluation-banner-content {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.2rem;
+  }
+
+  .evaluation-banner-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .evaluation-primary-button,
+  .evaluation-secondary-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.evaluation-banner-goal {
+  margin-top: 0.65rem !important;
+  color: #93c5fd !important;
+  font-size: 0.82rem !important;
+  font-weight: 700;
+}

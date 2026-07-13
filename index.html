@@ -36,19 +36,61 @@
         Plataforma de apoio à instrução musical militar
       </p>
 
-    <form class="search-form">
-      <label for="search-input">Pesquisar no acervo</label>
+      <form class="search-form">
+        <label for="search-input">Pesquisar no acervo</label>
 
-      <input
-        type="search"
-        id="search-input"
-        placeholder="Pesquisar música, toque ou hino">
-    </form>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Pesquisar música, toque ou hino">
+      </form>
+    </div>
   </header>
 
+  <!-- Banner de Avaliação Operacional -->
+  <section id="evaluation-banner" class="evaluation-banner" aria-labelledby="evaluation-banner-title">
+    <div class="evaluation-banner-content">
+      <div class="evaluation-banner-text">
+        <span class="evaluation-banner-label">
+          ⭐ Avaliação operacional
+        </span>
+
+        <h2 id="evaluation-banner-title">Sua opinião é importante!</h2>
+
+        <p>
+          O Acervo Militar está em avaliação operacional. Sua contribuição
+          leva aproximadamente 2 minutos e ajuda a melhorar a plataforma.
+        </p>
+
+        <p class="evaluation-banner-goal">
+          Marco inicial: reunir 50 avaliações. O formulário continuará aberto
+          após essa etapa.
+        </p>
+      </div>
+
+      <div class="evaluation-banner-actions">
+        <a
+          id="evaluation-link"
+          class="btn evaluation-primary-button"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfBsIGys8UXDBTNcy9EU2-2d-qC1zbz0xtrdGwJAGhSeNzu7A/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Responder avaliação
+        </a>
+
+        <button
+          id="evaluation-dismiss"
+          class="evaluation-secondary-button"
+          type="button"
+        >
+          Agora não
+        </button>
+      </div>
+    </div>
+  </section>
 
   <main>
-
     <div class="archive-toolbar">
       <div id="results-counter" class="results-counter"></div>
 
@@ -63,26 +105,25 @@
     </div>
 
     <section id="music-container"></section>
-
   </main>
 
-<footer class="site-footer">
-  <div class="footer-brand">
-    <p><strong>Acervo Militar</strong></p>
-    <p>Plataforma de apoio à instrução musical militar</p>
-  </div>
-  <nav class="footer-navigation" aria-label="Navegação institucional">
-    <a href="index.html">Acervo</a>
-    <a href="sobre.html">Sobre o projeto</a>
-    <a href="avaliacao.html">Avaliação</a>
-    <a href="privacidade.html">Privacidade</a>
-    <a href="termos.html">Termos de Uso</a>
-  </nav>
-  <div class="footer-meta">
-    <p>Versão v1.0.0 RC1</p>
-    <p>© 2026 — Projeto em avaliação operacional</p>
-  </div>
-</footer>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <p><strong>Acervo Militar</strong></p>
+      <p>Plataforma de apoio à instrução musical militar</p>
+    </div>
+    <nav class="footer-navigation" aria-label="Navegação institucional">
+      <a href="index.html">Acervo</a>
+      <a href="sobre.html">Sobre o projeto</a>
+      <a href="avaliacao.html">Avaliação</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="termos.html">Termos de Uso</a>
+    </nav>
+    <div class="footer-meta">
+      <p>Versão v1.0.0 RC1</p>
+      <p>© 2026 — Projeto em avaliação operacional</p>
+    </div>
+  </footer>
 
 </body>
 </html>
