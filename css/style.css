@@ -769,7 +769,7 @@ footer strong {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 1.4rem 1.5rem;
 }
 
@@ -807,6 +807,9 @@ footer strong {
 }
 
 .evaluation-primary-button {
+  padding: 0.9rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
   white-space: nowrap;
 }
 
