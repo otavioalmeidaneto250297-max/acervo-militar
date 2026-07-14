@@ -2,70 +2,82 @@
 <html lang="pt-BR">
 
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+  <title>Programação da Banda | BACG</title>
 
-<title>QTS BMU - BACG</title>
-
-<link rel="stylesheet"
-href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+  <header class="qts-header">
+    <div class="qts-header-content">
+      <div class="qts-brand">
+        <span class="qts-brand-name">Acervo Militar</span>
+        <span class="qts-brand-module">QTS BMU</span>
+      </div>
 
-<h1>QTS BMU</h1>
+      <div class="qts-header-text">
+        <h1>Programação Semanal — Banda de Música</h1>
+        <p>BACG</p>
+      </div>
+    </div>
+  </header>
 
-<p>Banda de Música da BACG</p>
+  <main class="qts-main">
 
-</header>
+    <section class="qts-section qts-week-section">
+      <div class="section-heading">
+        <span class="section-label">Período vigente</span>
+        <h2>Semana</h2>
+      </div>
 
-<main>
+      <div id="semana">
+        Carregando...
+      </div>
+    </section>
 
-<section id="informacoes">
+    <section class="qts-section">
+      <div class="section-heading">
+        <span class="section-label">Agenda</span>
+        <h2>Programação</h2>
+      </div>
 
-<h2>Semana</h2>
+      <div id="programacao">
+        Carregando programação...
+      </div>
+    </section>
 
-<p id="semana">
-Carregando...
-</p>
+    <section class="qts-section">
+      <div class="section-heading">
+        <span class="section-label">Estudo e preparação</span>
+        <h2>Repertório</h2>
+      </div>
 
-</section>
+      <div id="repertorio">
+        Carregando repertório...
+      </div>
+    </section>
 
-<section>
+  </main>
 
-<h2>Programação</h2>
+  <footer class="qts-footer">
+    <p><strong>Acervo Militar</strong></p>
+    <p>Programação da Banda de Música — Projeto piloto</p>
+    <p>
+      O QTS oficial continua sendo o documento distribuído pela Organização.
+    </p>
+  </footer>
 
-<div id="programacao">
-
-Carregando programação...
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Repertório</h2>
-
-<div id="repertorio">
-
-Carregando repertório...
-
-</div>
-
-</section>
-
-</main>
-
-<script src="config.js"></script>
-<script src="googleSheets.js"></script>
-<script src="app.js"></script>
+  <script src="config.js"></script>
+  <script src="googleSheets.js"></script>
+  <script src="app.js"></script>
 
 </body>
 
