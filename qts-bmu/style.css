@@ -1,0 +1,200 @@
+body{
+
+background:#0f172a;
+
+color:white;
+
+font-family:Arial,Helvetica,sans-serif;
+
+margin:0;
+
+padding:40px;
+
+}
+
+header{
+
+margin-bottom:40px;
+
+}
+
+section{
+
+background:#1e293b;
+
+padding:25px;
+
+margin-bottom:25px;
+
+border-radius:12px;
+
+}
+
+h1{
+
+margin:0;
+
+font-size:2.5rem;
+
+}
+
+h2{
+
+margin-top:0;
+
+}
+
+#semana {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.ultima-atualizacao,
+.aviso-programacao {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.mensagem-erro {
+  color: #fca5a5;
+}
+
+.dia-card {
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #0f172a;
+}
+
+.dia-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background: #273449;
+}
+
+.dia-card-header h3 {
+  margin: 0;
+}
+
+.dia-card-header span {
+  color: #94a3b8;
+}
+
+.atividade-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #263449;
+}
+
+.atividade-item:first-child {
+  border-top: none;
+}
+
+.atividade-item time {
+  color: #93c5fd;
+  font-weight: 700;
+}
+
+.atividade-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.atividade-conteudo span,
+.atividade-conteudo small {
+  color: #94a3b8;
+}
+
+.repertorio-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.obra-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #0f172a;
+}
+
+.obra-numero {
+  display: grid;
+  place-items: center;
+  flex: 0 0 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #2563eb;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.obra-conteudo {
+  min-width: 0;
+}
+
+.obra-conteudo h3 {
+  margin: 0 0 0.5rem;
+}
+
+.obra-metadados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.obra-metadados span {
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: #263449;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+}
+
+.obra-metadados .status {
+  background: rgba(37, 99, 235, 0.2);
+  color: #93c5fd;
+}
+
+.botao-pdf {
+  display: inline-flex;
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pdf-indisponivel {
+  display: block;
+  margin-top: 0.75rem;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .dia-card-header {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .atividade-item {
+    grid-template-columns: 72px 1fr;
+  }
+}
