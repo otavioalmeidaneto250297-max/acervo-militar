@@ -31,7 +31,6 @@
 
       <div class="management-header-text">
         <h1>Gestão da Banda de Música</h1>
-
         <p>Programação e repertório semanal</p>
       </div>
 
@@ -53,8 +52,7 @@
       </p>
 
       <p>
-        Durante esta etapa, os controles ainda não alteram os dados
-        publicados.
+        Nesta etapa, as seleções ainda não alteram a planilha publicada.
       </p>
     </section>
 
@@ -114,48 +112,105 @@
         </div>
 
         <div class="panel-block">
-          <h3>Repertório da Semana</h3>
+
+          <div class="panel-heading">
+            <div>
+              <h3>Repertório da Semana</h3>
+
+              <p>
+                Pesquise e selecione as obras que aparecerão no QTS.
+              </p>
+            </div>
+
+            <span
+              id="selected-counter"
+              class="selected-counter"
+            >
+              0 selecionadas
+            </span>
+          </div>
+
+          <div class="catalog-search">
+            <label for="catalog-search-input">
+              Pesquisar por número, título ou categoria
+            </label>
+
+            <input
+              id="catalog-search-input"
+              type="search"
+              placeholder="Ex.: 38, Batista de Melo ou Dobrado"
+              autocomplete="off"
+            >
+          </div>
 
           <div id="lista-obras">
-
-            <label class="obra-item">
-              <input type="checkbox">
-              Brasília
-            </label>
-
-            <label class="obra-item">
-              <input type="checkbox">
-              Batista de Melo
-            </label>
-
-            <label class="obra-item">
-              <input type="checkbox">
-              Guarani
-            </label>
-
-            <label class="obra-item">
-              <input type="checkbox">
-              Cisne Branco
-            </label>
-
-            <label class="obra-item">
-              <input type="checkbox">
-              Hino Nacional
-            </label>
-
-            <label class="obra-item">
-              <input type="checkbox">
-              Von Ryan
-            </label>
-
+            <p class="loading-message">
+              Carregando catálogo...
+            </p>
           </div>
+
+        </div>
+
+        <!-- === NOVO BLOCO INSERIDO === -->
+        <div class="panel-block">
+          <div class="panel-heading">
+            <div>
+              <h3>Repertório selecionado</h3>
+              <p>
+                Organize a ordem em que as obras aparecerão no QTS.
+              </p>
+            </div>
+          </div>
+          <div id="repertorio-selecionado">
+            <p class="empty-message">
+              Nenhuma obra selecionada.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel-block">
+          <div class="panel-heading">
+            <div>
+              <h3>Adicionar obra avulsa</h3>
+              <p>
+                Use para músicas que não possuem número no caderno.
+              </p>
+            </div>
+          </div>
+          <form id="obra-avulsa-form" class="obra-avulsa-form">
+            <label for="obra-avulsa-titulo">
+              Nome da obra
+            </label>
+            <input
+              id="obra-avulsa-titulo"
+              type="text"
+              placeholder="Ex.: Marcha da Unidade"
+              autocomplete="off"
+            >
+            <label for="obra-avulsa-observacao">
+              Observação opcional
+            </label>
+            <input
+              id="obra-avulsa-observacao"
+              type="text"
+              placeholder="Ex.: Revisar introdução"
+              autocomplete="off"
+            >
+            <button class="primary-button" type="submit">
+              Adicionar obra avulsa
+            </button>
+            <p
+              id="obra-avulsa-message"
+              class="access-message"
+            ></p>
+          </form>
         </div>
 
         <div class="panel-block">
           <h3>Alterações</h3>
 
           <p id="status-alteracoes">
-            Nenhuma alteração.
+            Nenhuma alteração pendente.
           </p>
         </div>
 
@@ -184,6 +239,8 @@
     <p>Versão experimental em desenvolvimento</p>
   </footer>
 
+  <script src="../config.js"></script>
+  <script src="../googleSheets.js"></script>
   <script src="app.js"></script>
 
 </body>
