@@ -7,6 +7,7 @@ const estadoGestao = {
   catalogo: [],
   repertorioAtual: [],
   repertorioSelecionado: [],
+  programacaoAtual: [],
   alteracoesPendentes: false
 };
 
@@ -30,48 +31,72 @@ function iniciarGestao() {
     const pin = pinInput.value.trim();
 
     message.className = "access-message";
+    preview.classList.add("is-hidden");
 
     if (!pin) {
-      message.textContent =
-        "Digite o código de gestão.";
-
+      message.textContent = "Digite o código de gestão.";
       message.classList.add("error");
 
       return;
     }
 
-    message.textContent =
-      "Carregando painel...";
-
-    message.classList.add("success");
-
-    preview.classList.remove("is-hidden");
+    message.textContent = "Validando acesso...";
 
     try {
+      const resultado = await validarPin(pin);
+
+      if (!resultado.sucesso) {
+        message.textContent =
+          resultado.mensagem || "PIN inválido.";
+
+        message.className = "access-message error";
+        pinInput.select();
+        return;
+      }
+
+      message.textContent = "Carregando painel...";
+      message.className = "access-message success";
+
       await carregarDadosGestao();
 
-      message.textContent =
-        "Painel carregado com sucesso.";
+      preview.classList.remove("is-hidden");
 
-      message.className =
-        "access-message success";
+      message.textContent = "Acesso autorizado.";
+      message.className = "access-message success";
     } catch (erro) {
-      console.error(
-        "Erro ao carregar painel de gestão:",
-        erro
-      );
+      console.error("Erro ao validar acesso:", erro);
 
       message.textContent =
-        "Não foi possível carregar o catálogo e o repertório.";
+        "Não foi possível validar o acesso.";
 
-      message.className =
-        "access-message error";
+      message.className = "access-message error";
     }
   });
 
   configurarPesquisa();
   configurarObraAvulsa();
   configurarBotaoSalvar();
+  configurarBotaoProgramacao();
+  configurarBotaoNovaAtividade();
+}
+
+async function validarPin(pin) {
+  const resposta = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify({
+      acao: "validarPin",
+      pin
+    })
+  });
+
+  if (!resposta.ok) {
+    throw new Error(`Erro HTTP ${resposta.status}`);
+  }
+
+  return resposta.json();
 }
 
 async function carregarDadosGestao() {
@@ -86,13 +111,34 @@ async function carregarDadosGestao() {
     `;
   }
 
-  const [
-    catalogoLinhas,
-    repertorioLinhas
-  ] = await Promise.all([
-    carregarCsv(SHEETS.catalogo),
-    carregarCsv(SHEETS.repertorio)
-  ]);
+  const resposta = await fetch(
+  `${API_URL}?acao=carregarQts&t=${Date.now()}`,
+  {
+    cache: "no-store"
+  }
+);
+
+if (!resposta.ok) {
+  throw new Error(
+    `Erro HTTP ${resposta.status}`
+  );
+}
+
+const json =
+  await resposta.json();
+
+if (!json.sucesso || !json.dados) {
+  throw new Error(
+    json.mensagem ||
+    "Falha ao carregar dados da gestão."
+  );
+}
+
+const {
+  catalogo: catalogoLinhas,
+  repertorio: repertorioLinhas,
+  programacao: programacaoLinhas
+} = json.dados;
 
   estadoGestao.catalogo =
     catalogoLinhas
@@ -117,6 +163,11 @@ async function carregarDadosGestao() {
           Number(b.ordem || 9999)
         );
       });
+
+  estadoGestao.programacaoAtual =
+    programacaoLinhas.filter(    
+      (linha) => normalizarSimNao(linha.mostrar)
+    );
 
   estadoGestao.repertorioSelecionado =
     transformarRepertorioAtual();
@@ -863,13 +914,17 @@ function atualizarStatusAlteracoes() {
       "status-alteracoes"
     );
 
+  const botaoSalvar =
+    document.getElementById(
+      "btn-salvar"
+    );
+
   if (!status) {
     return;
   }
 
   if (
-    estadoGestao
-      .alteracoesPendentes
+    estadoGestao.alteracoesPendentes
   ) {
     status.textContent =
       "Existem alterações ainda não publicadas.";
@@ -877,6 +932,11 @@ function atualizarStatusAlteracoes() {
     status.classList.add(
       "has-changes"
     );
+
+    if (botaoSalvar) {
+      botaoSalvar.disabled = false;
+    }
+
   } else {
     status.textContent =
       "Nenhuma alteração pendente.";
@@ -884,23 +944,454 @@ function atualizarStatusAlteracoes() {
     status.classList.remove(
       "has-changes"
     );
+
+    if (botaoSalvar) {
+      botaoSalvar.disabled = true;
+    }
   }
 }
+
+function configurarBotaoProgramacao() {
+
+  const botao =
+    document.getElementById(
+      "btn-programacao"
+    );
+
+  const painel =
+    document.getElementById(
+      "painel-programacao"
+    );
+
+  if (!botao || !painel) {
+    return;
+  }
+
+  botao.addEventListener("click", () => {
+
+    const aberto =
+      !painel.classList.contains(
+        "is-hidden"
+      );
+
+    if (aberto) {
+
+      painel.classList.add("is-hidden");
+
+      botao.textContent =
+        "Editar programação";
+
+      return;
+
+    }
+
+    renderizarEditorProgramacao();
+
+    painel.classList.remove(
+      "is-hidden"
+    );
+
+    botao.textContent =
+      "Fechar programação";
+
+  });
+
+}
+
+function renderizarEditorProgramacao() {
+  const painel =
+    document.getElementById("lista-programacao");
+
+  if (!painel) {
+    return;
+  }
+
+  if (estadoGestao.programacaoAtual.length === 0) {
+    painel.innerHTML = `
+      <p class="empty-message">
+        Nenhuma atividade encontrada.
+      </p>
+    `;
+
+    return;
+  }
+
+  painel.innerHTML =
+    estadoGestao.programacaoAtual
+      .map((atividade, indice) =>
+        renderizarCardProgramacao(atividade, indice)
+      )
+      .join("");
+
+  configurarCamposProgramacao();
+  configurarBotoesOrdenacaoProgramacao();
+  configurarBotoesRemoverProgramacao();
+}
+
+function renderizarCardProgramacao(atividade, indice) {
+  return `
+    <article class="programacao-editor-item">
+
+      <div class="programacao-editor-order">
+        ${indice + 1}
+      </div>
+
+      <div class="programacao-editor-fields">
+
+        <label>
+          Dia
+          <input
+            type="text"
+            class="programacao-input"
+            data-index="${indice}"
+            data-campo="dia"
+            value="${escaparAtributo(atividade.dia || "")}"
+          >
+        </label>
+
+        <label>
+          Data
+          <input
+            type="text"
+            class="programacao-input"
+            data-index="${indice}"
+            data-campo="data"
+            value="${escaparAtributo(atividade.data || "")}"
+            placeholder="Ex.: 13/07"
+          >
+        </label>
+
+        <label>
+          Horário
+          <input
+            type="text"
+            class="programacao-input"
+            data-index="${indice}"
+            data-campo="horario"
+            value="${escaparAtributo(atividade.horario || "")}"
+            placeholder="Ex.: 09:00"
+          >
+        </label>
+
+        <label>
+          Atividade
+          <input
+            type="text"
+            class="programacao-input"
+            data-index="${indice}"
+            data-campo="atividade"
+            value="${escaparAtributo(atividade.atividade || "")}"
+            placeholder="Ex.: Ensaio"
+          >
+        </label>
+
+        <label>
+          Local
+          <input
+            type="text"
+            class="programacao-input"
+            data-index="${indice}"
+            data-campo="local"
+            value="${escaparAtributo(atividade.local || "")}"
+            placeholder="Ex.: Sala da Banda"
+          >
+        </label>
+
+        <label>
+          Observação
+          <input
+            type="text"
+            class="programacao-input"
+            data-index="${indice}"
+            data-campo="observacao"
+            value="${escaparAtributo(atividade.observacao || "")}"
+            placeholder="Observação opcional"
+          >
+        </label>
+
+      </div>
+
+      <div class="programacao-editor-actions">
+        <button
+          type="button"
+          class="order-button programacao-order-button"
+          data-action="up"
+          data-index="${indice}"
+          aria-label="Mover atividade para cima"
+          ${indice === 0 ? "disabled" : ""}
+  >
+    ↑
+  </button>
+
+  <button
+    type="button"
+    class="order-button programacao-order-button"
+    data-action="down"
+    data-index="${indice}"
+    aria-label="Mover atividade para baixo"
+    ${
+      indice === estadoGestao.programacaoAtual.length - 1
+        ? "disabled"
+        : ""
+    }
+    >
+    ↓
+  </button>
+
+  <button
+    type="button"
+    class="remove-button programacao-remove-button"
+    data-index="${indice}"
+        >
+          Remover atividade
+        </button>
+      </div>
+
+    </article>
+  `;
+}
+
+function configurarCamposProgramacao() {
+  const campos =
+    document.querySelectorAll(".programacao-input");
+
+  campos.forEach((campo) => {
+    campo.addEventListener("input", () => {
+      const indice = Number(campo.dataset.index);
+      const nomeCampo = campo.dataset.campo;
+
+      const atividade =
+        estadoGestao.programacaoAtual[indice];
+
+      if (!atividade || !nomeCampo) {
+        return;
+      }
+
+      atividade[nomeCampo] = campo.value;
+
+      estadoGestao.alteracoesPendentes = true;
+      atualizarStatusAlteracoes();
+    });
+  });
+}
+
+function configurarBotoesOrdenacaoProgramacao() {
+
+  const botoes =
+    document.querySelectorAll(
+      ".programacao-order-button"
+    );
+
+  botoes.forEach((botao) => {
+
+    botao.addEventListener("click", () => {
+
+      const indice =
+        Number(botao.dataset.index);
+
+      const acao =
+        botao.dataset.action;
+
+      if (
+        !Number.isInteger(indice)
+      ) {
+        return;
+      }
+
+      if (
+        acao === "up" &&
+        indice > 0
+      ) {
+
+        [
+          estadoGestao.programacaoAtual[indice - 1],
+          estadoGestao.programacaoAtual[indice]
+        ] = [
+
+          estadoGestao.programacaoAtual[indice],
+          estadoGestao.programacaoAtual[indice - 1]
+
+        ];
+
+      }
+
+      if (
+        acao === "down" &&
+        indice <
+          estadoGestao.programacaoAtual.length - 1
+      ) {
+
+        [
+          estadoGestao.programacaoAtual[indice + 1],
+          estadoGestao.programacaoAtual[indice]
+        ] = [
+
+          estadoGestao.programacaoAtual[indice],
+          estadoGestao.programacaoAtual[indice + 1]
+
+        ];
+
+      }
+
+      estadoGestao.alteracoesPendentes =
+        true;
+
+      renderizarEditorProgramacao();
+
+      atualizarStatusAlteracoes();
+
+    });
+
+  });
+
+}
+
+function configurarBotoesRemoverProgramacao() {
+  const botoes = document.querySelectorAll(
+    ".programacao-remove-button"
+  );
+
+  botoes.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      const indice = Number(botao.dataset.index);
+
+      if (
+        !Number.isInteger(indice) ||
+        !estadoGestao.programacaoAtual[indice]
+      ) {
+        return;
+      }
+
+      const atividade =
+        estadoGestao.programacaoAtual[indice];
+
+      const possuiConteudo = [
+        atividade.dia,
+        atividade.data,
+        atividade.horario,
+        atividade.atividade,
+        atividade.local,
+        atividade.observacao
+      ].some((valor) => String(valor || "").trim());
+
+      if (possuiConteudo) {
+        const confirmar = window.confirm(
+          "Deseja remover esta atividade da programação?"
+        );
+
+        if (!confirmar) {
+          return;
+        }
+      }
+
+      estadoGestao.programacaoAtual.splice(indice, 1);
+      estadoGestao.alteracoesPendentes = true;
+
+      renderizarEditorProgramacao();
+      atualizarStatusAlteracoes();
+    });
+  });
+}
+
+function configurarBotaoNovaAtividade() {
+
+  const botao =
+    document.getElementById(
+      "btn-nova-atividade"
+    );
+
+  if (!botao) {
+    return;
+  }
+
+  botao.addEventListener(
+    "click",
+    () => {
+
+      estadoGestao.programacaoAtual.push({
+
+        dia: "",
+
+        data: "",
+
+        horario: "",
+
+        atividade: "",
+
+        local: "",
+
+        observacao: "",
+
+        mostrar: "SIM"
+
+      });
+
+      estadoGestao.alteracoesPendentes =
+        true;
+
+      atualizarStatusAlteracoes();
+
+      renderizarEditorProgramacao();
+
+    }
+  );
+
+}
+
+let temporizadorToast = null;
+
+function mostrarToast(mensagem, tipo = "success") {
+  const toast =
+    document.getElementById("toast-message");
+
+  if (!toast) {
+    console.warn(
+      "Elemento de notificação não encontrado."
+    );
+
+    return;
+  }
+
+  if (temporizadorToast) {
+    clearTimeout(temporizadorToast);
+  }
+
+  toast.textContent = mensagem;
+  toast.className =
+    `toast-message show ${tipo}`;
+
+  temporizadorToast = setTimeout(() => {
+    toast.className = "toast-message";
+    toast.textContent = "";
+  }, 4500);
+}
+
 function configurarBotaoSalvar() {
   const botao =
     document.getElementById("btn-salvar");
 
-  if (!botao) return;
+  if (!botao) {
+    return;
+  }
 
   botao.addEventListener("click", async () => {
-
     const pin =
       document
         .getElementById("management-pin")
         ?.value.trim();
 
+    const responsavel =
+      document
+        .getElementById("responsavel-publicacao-select")
+        ?.value.trim();
+
     if (!pin) {
-      alert("Digite o PIN de gestão.");
+      mostrarToast("Digite o PIN de gestão.", "error",);
+      return;
+    }
+
+    if (!responsavel) {
+      mostrarToast("Selecione o responsável pela atualização.", "error",);
       return;
     }
 
@@ -919,80 +1410,93 @@ function configurarBotaoSalvar() {
         })
       );
 
-    const textoOriginal =
-      botao.textContent;
+    const programacao =
+      estadoGestao.programacaoAtual.map(
+        (item) => ({
+          dia: item.dia || "",
+          data: item.data || "",
+          horario: item.horario || "",
+          atividade: item.atividade || "",
+          local: item.local || "",
+          observacao: item.observacao || "",
+          mostrar: "SIM"
+        })
+      );
+
+    const textoOriginal = botao.textContent;
 
     botao.disabled = true;
-    botao.textContent =
-      "Publicando...";
+    botao.textContent = "Publicando...";
 
     try {
-
       const resposta =
-        await fetch(API_URL, {
+  await enviarDadosApi({
+    acao: "salvarTudo",
+    pin,
+    responsavel,
+    repertorio,
+    programacao
+  });
 
-          method: "POST",
+if (!resposta.sucesso) {
+  throw new Error(
+    resposta.mensagem ||
+    "Erro ao publicar alterações."
+  );
+}
 
-          headers: {
-            "Content-Type":
-              "text/plain;charset=utf-8"
-          },
-
-          body: JSON.stringify({
-            pin,
-            repertorio
-          })
-
-        });
-
-      if (!resposta.ok) {
-        throw new Error(
-          "Erro HTTP " +
-          resposta.status
-        );
-      }
-
-      const json =
-        await resposta.json();
-
-      if (!json.sucesso) {
-
-        alert(
-          json.mensagem ||
-          "Erro ao publicar."
-        );
-
-        return;
-      }
-
-      estadoGestao.alteracoesPendentes =
-        false;
-
+      estadoGestao.alteracoesPendentes = false;
       atualizarStatusAlteracoes();
 
-      alert(
-        json.mensagem ||
-        "Repertório publicado!"
+      botao.textContent = "✓ Publicado";
+
+      mostrarToast(
+        "Repertório e programação publicados com sucesso!",
+        "success"
+      );
+
+      await new Promise(resolve =>
+      setTimeout(resolve, 1800)
       );
 
     } catch (erro) {
-
-      console.error(erro);
-
-      alert(
-        "Erro ao conectar com a API."
+      console.error(
+        "Erro ao publicar alterações:",
+        erro
       );
 
+      mostrarToast(
+        erro.message ||
+        "Erro ao conectar com a API.",
+        "error"
+      );
     } finally {
+  botao.textContent =
+    textoOriginal;
 
-      botao.disabled = false;
-      botao.textContent =
-        textoOriginal;
-
+  atualizarStatusAlteracoes();
     }
+  });
+}
 
+async function enviarDadosApi(dados) {
+  const resposta = await fetch(API_URL, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+
+    body: JSON.stringify(dados)
   });
 
+  if (!resposta.ok) {
+    throw new Error(
+      `Erro HTTP ${resposta.status}`
+    );
+  }
+
+  return resposta.json();
 }
 
 function normalizarTexto(texto) {

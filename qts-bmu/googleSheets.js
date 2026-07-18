@@ -1,7 +1,16 @@
 async function carregarCsv(url) {
-  const resposta = await fetch(url, {
+  
+  const urlAtualizada =
+  `${url}${
+    url.includes("?") ? "&" : "?"
+  }t=${Date.now()}`;
+
+  const resposta = await fetch(
+  urlAtualizada,
+  {
     cache: "no-store"
-  });
+  }
+);
 
   if (!resposta.ok) {
     throw new Error(`Erro ao carregar planilha: ${resposta.status}`);

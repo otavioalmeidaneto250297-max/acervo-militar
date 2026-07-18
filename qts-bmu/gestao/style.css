@@ -583,3 +583,326 @@ font-style:italic;
     justify-content: flex-end;
   }
 }
+.programacao-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.programacao-editor .selected-work {
+  grid-template-columns: 1fr;
+}
+
+.programacao-editor .selected-work-content {
+  gap: 0.3rem;
+}
+
+.programacao-editor .selected-work-content strong {
+  font-size: 1rem;
+}
+
+.programacao-editor .selected-work-content small {
+  display: block;
+  color: var(--muted);
+}
+.programacao-editor.is-hidden {
+  display: none;
+}
+.programacao-editor-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
+
+.programacao-remove-button {
+  width: auto;
+}
+
+/* ===============================
+   TOAST DE NOTIFICAÇÕES
+================================ */
+
+.toast-message {
+
+  margin-top: 16px;
+
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  display: none;
+
+  font-weight: 700;
+
+  border: 1px solid transparent;
+
+  animation: fadeIn .25s ease;
+
+}
+
+.toast-message.show {
+
+  display: block;
+
+}
+
+.toast-message.success {
+
+  background: rgba(34,197,94,.18);
+
+  border-color: rgba(34,197,94,.45);
+
+  color: #86efac;
+
+}
+
+.toast-message.error {
+
+  background: rgba(239,68,68,.16);
+
+  border-color: rgba(239,68,68,.40);
+
+  color: #fca5a5;
+
+}
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(-8px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+/* ==========================================
+   RESPONSÁVEL PELA PUBLICAÇÃO
+========================================== */
+
+.responsavel-publicacao{
+
+  margin-top:18px;
+
+}
+
+.responsavel-publicacao label{
+
+  display:block;
+
+  margin-bottom:8px;
+
+  font-weight:700;
+
+}
+
+.responsavel-publicacao select{
+
+  width:100%;
+
+  min-height:46px;
+
+  padding:10px 14px;
+
+  border-radius:8px;
+
+  border:1px solid var(--border);
+
+  background:var(--surface-dark);
+
+  color:var(--text);
+
+  font:inherit;
+
+}
+
+.responsavel-publicacao select:focus{
+
+  outline:none;
+
+  border-color:var(--primary);
+
+}
+
+/* ==========================================
+   PROGRAMAÇÃO — MOBILE
+========================================== */
+
+.programacao-editor-item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #1f2937;
+}
+
+.programacao-editor-order {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-weight: 800;
+}
+
+.programacao-editor-fields {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.programacao-editor-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.programacao-editor-fields input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: var(--surface-dark);
+  color: var(--text);
+}
+
+.programacao-editor-fields input:focus {
+  border-color: var(--primary);
+}
+
+@media (max-width: 680px) {
+  .programacao-editor-item {
+    grid-template-columns: 1fr;
+  }
+
+  .programacao-editor-order {
+    width: 100%;
+    height: 36px;
+  }
+
+  .programacao-editor-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .programacao-editor-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .programacao-editor-actions .order-button {
+    min-height: 46px;
+    font-size: 1.1rem;
+  }
+
+  .programacao-remove-button {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 46px;
+  }
+
+  #btn-programacao,
+  #btn-nova-atividade,
+  #btn-salvar {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   REPERTÓRIO E PUBLICAÇÃO — MOBILE
+========================================== */
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (max-width: 680px) {
+  .management-panel {
+    gap: 18px;
+  }
+
+  .panel-block {
+    padding: 14px;
+  }
+
+  .selected-work {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .selected-work-order {
+    width: 100%;
+    height: 36px;
+  }
+
+  .selected-work-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .selected-work-actions .order-button {
+    min-height: 46px;
+    font-size: 1.1rem;
+  }
+
+  .selected-work-actions .remove-button {
+    grid-column: 1 / -1;
+    min-height: 46px;
+    width: 100%;
+  }
+
+  .obra-item {
+    min-height: 64px;
+    padding: 14px;
+  }
+
+  .obra-item input {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .catalog-search input,
+  .obra-avulsa-form input,
+  .selected-work-note,
+  .responsavel-publicacao select {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  #status-alteracoes {
+    margin-bottom: 0;
+  }
+
+  .toast-message {
+    position: sticky;
+    bottom: 12px;
+    z-index: 20;
+    box-shadow: var(--shadow);
+  }
+}

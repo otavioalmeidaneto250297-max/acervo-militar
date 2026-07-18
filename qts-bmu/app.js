@@ -1,30 +1,65 @@
 document.addEventListener("DOMContentLoaded", iniciarQts);
 
+const INTERVALO_ATUALIZACAO = 5000;
+
+let atualizacaoAutomatica = null;
+
 async function iniciarQts() {
-  const semanaElement = document.getElementById("semana");
-  const programacaoElement = document.getElementById("programacao");
-  const repertorioElement = document.getElementById("repertorio");
+  const semanaElement =
+    document.getElementById("semana");
+
+  const programacaoElement =
+    document.getElementById("programacao");
+
+  const repertorioElement =
+    document.getElementById("repertorio");
 
   try {
-    const [
-      configLinhas,
-      programacaoLinhas,
-      repertorioLinhas,
-      catalogoLinhas,
-      partiturasLinhas
-    ] = await Promise.all([
-      carregarCsv(SHEETS.config),
-      carregarCsv(SHEETS.programacao),
-      carregarCsv(SHEETS.repertorio),
-      carregarCsv(SHEETS.catalogo),
-      carregarCsv(SHEETS.partituras)
-    ]);
+    const resposta = await fetch(
+      `${API_QTS}?acao=carregarQts&t=${Date.now()}`,
+      {
+        cache: "no-store"
+      }
+    );
 
-    const config = transformarConfig(configLinhas);
+    if (!resposta.ok) {
+      throw new Error(
+        `Erro HTTP ${resposta.status}`
+      );
+    }
+
+    const json =
+      await resposta.json();
+
+    if (!json.sucesso || !json.dados) {
+      throw new Error(
+        json.mensagem ||
+        "Falha ao carregar dados da API."
+      );
+    }
+
+    const {
+      config: configLinhas,
+      programacao: programacaoLinhas,
+      repertorio: repertorioLinhas,
+      catalogo: catalogoLinhas,
+      partituras: partiturasLinhas
+    } = json.dados;
+
+    const config =
+      transformarConfig(configLinhas);
 
     atualizarCabecalho(config);
-    renderizarSemana(config, semanaElement);
-    renderizarProgramacao(programacaoLinhas, programacaoElement);
+
+    renderizarSemana(
+      config,
+      semanaElement
+    );
+
+    renderizarProgramacao(
+      programacaoLinhas,
+      programacaoElement
+    );
 
     renderizarRepertorio(
       repertorioLinhas,
@@ -32,8 +67,17 @@ async function iniciarQts() {
       partiturasLinhas,
       repertorioElement
     );
+
+    atualizarStatusSincronizacao(true);
+    iniciarAtualizacaoAutomatica();
+
   } catch (erro) {
-    console.error("Erro ao carregar QTS:", erro);
+    console.error(
+      "Erro ao carregar QTS:",
+      erro
+    );
+
+    atualizarStatusSincronizacao(false);
 
     semanaElement.textContent =
       "Não foi possível carregar a semana.";
@@ -50,6 +94,131 @@ async function iniciarQts() {
       </p>
     `;
   }
+}
+
+function iniciarAtualizacaoAutomatica() {
+
+  if (atualizacaoAutomatica) {
+    return;
+  }
+
+  atualizacaoAutomatica = setInterval(
+    atualizarQtsSilenciosamente,
+    INTERVALO_ATUALIZACAO
+  );
+
+}
+
+async function atualizarQtsSilenciosamente() {
+  try {
+    const resposta = await fetch(
+      `${API_QTS}?acao=carregarQts&t=${Date.now()}`,
+      {
+        cache: "no-store"
+      }
+    );
+
+    if (!resposta.ok) {
+      throw new Error(
+        `Erro HTTP ${resposta.status}`
+      );
+    }
+
+    const json = await resposta.json();
+
+    if (!json.sucesso || !json.dados) {
+      throw new Error(
+        json.mensagem ||
+        "Falha ao atualizar os dados."
+      );
+    }
+
+    const {
+      config: configLinhas,
+      programacao: programacaoLinhas,
+      repertorio: repertorioLinhas,
+      catalogo: catalogoLinhas,
+      partituras: partiturasLinhas
+    } = json.dados;
+
+    const config =
+      transformarConfig(configLinhas);
+
+    atualizarCabecalho(config);
+
+    renderizarSemana(
+      config,
+      document.getElementById("semana")
+    );
+
+    renderizarProgramacao(
+      programacaoLinhas,
+      document.getElementById("programacao")
+    );
+
+    renderizarRepertorio(
+      repertorioLinhas,
+      catalogoLinhas,
+      partiturasLinhas,
+      document.getElementById("repertorio")
+    );
+
+    atualizarStatusSincronizacao(true);
+
+  } catch (erro) {
+    console.error(
+      "Erro na atualização automática:",
+      erro
+    );
+
+    atualizarStatusSincronizacao(false);
+  }
+}
+
+function atualizarStatusSincronizacao(
+  sucesso = true
+) {
+
+  const status =
+    document.getElementById(
+      "status-sincronizacao"
+    );
+
+  if (!status) {
+    return;
+  }
+
+  const agora =
+    new Date();
+
+  const horario =
+    agora.toLocaleTimeString(
+      "pt-BR",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      }
+    );
+
+  if (sucesso) {
+
+    status.className =
+      "status-sincronizacao atualizado";
+
+    status.textContent =
+      `🟢 Sincronizado às ${horario}`;
+
+  } else {
+
+    status.className =
+      "status-sincronizacao erro";
+
+    status.textContent =
+      `🔴 Erro de sincronização`;
+
+  }
+
 }
 
 /* ======================================================
@@ -94,6 +263,9 @@ function renderizarSemana(config, elemento) {
   const ultimaAtualizacao =
     config.ultima_atualizacao || "Não informada";
 
+  const responsavel =
+    config.responsavel || "";
+
   const aviso =
     config.aviso || "";
 
@@ -103,9 +275,14 @@ function renderizarSemana(config, elemento) {
     </strong>
 
     <span class="ultima-atualizacao">
-      Última atualização:
-      ${escaparHtml(ultimaAtualizacao)}
-    </span>
+  Última atualização:
+  ${escaparHtml(ultimaAtualizacao)}
+  ${
+    responsavel
+      ? ` - ${escaparHtml(responsavel)}`
+      : ""
+  }
+</span>
 
     ${
       aviso
