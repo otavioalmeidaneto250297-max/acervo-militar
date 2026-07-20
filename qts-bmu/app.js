@@ -2,9 +2,49 @@ document.addEventListener("DOMContentLoaded", iniciarQts);
 
 const INTERVALO_ATUALIZACAO = 5000;
 
+const PIN_QTS = "1234";
+
+const CHAVE_SESSAO_QTS =
+  "qts_autenticado";
+
 let atualizacaoAutomatica = null;
 
+async function carregarDadosApiQts() {
+  const resposta = await fetch(
+    `${API_QTS}?acao=carregarQts&t=${Date.now()}`,
+    {
+      cache: "no-store"
+    }
+  );
+
+  if (!resposta.ok) {
+    throw new Error(
+      `Erro HTTP ${resposta.status}`
+    );
+  }
+
+  const json = await resposta.json();
+
+  if (!json.sucesso || !json.dados) {
+    throw new Error(
+      json.mensagem ||
+      "Falha ao carregar dados da API."
+    );
+  }
+
+  return json.dados;
+}
+
 async function iniciarQts() {
+
+if (!verificarSessaoQts()) {
+
+  prepararTelaAcesso();
+
+  return;
+
+}
+
   const semanaElement =
     document.getElementById("semana");
 
@@ -70,6 +110,28 @@ async function iniciarQts() {
 
     atualizarStatusSincronizacao(true);
     iniciarAtualizacaoAutomatica();
+
+    const barra =
+  document.getElementById(
+    "qts-loading-bar"
+  );
+
+if (barra) {
+  barra.classList.add(
+    "is-hidden"
+  );
+}
+
+    const telaAcesso =
+  document.getElementById(
+    "qts-access-screen"
+  );
+
+if (telaAcesso) {
+  telaAcesso.classList.add(
+    "is-hidden"
+  );
+}
 
   } catch (erro) {
     console.error(
@@ -751,4 +813,127 @@ function escaparHtml(valor) {
 
 function escaparAtributo(valor) {
   return escaparHtml(valor);
+}
+
+function verificarSessaoQts() {
+  return (
+    localStorage.getItem(
+      CHAVE_SESSAO_QTS
+    ) === "sim"
+  );
+}
+
+function prepararTelaAcesso() {
+  const tela =
+    document.getElementById(
+      "qts-access-screen"
+    );
+
+  const input =
+    document.getElementById(
+      "qts-pin"
+    );
+
+  const botao =
+    document.getElementById(
+      "btn-qts-access"
+    );
+
+  const mensagem =
+    document.getElementById(
+      "qts-access-message"
+    );
+
+  if (
+    !tela ||
+    !input ||
+    !botao ||
+    !mensagem
+  ) {
+    console.error(
+      "Elementos da tela de acesso não encontrados."
+    );
+
+    return;
+  }
+
+  tela.classList.remove("is-hidden");
+
+  const tentarEntrar = async () => {
+    const pin =
+      input.value.trim();
+
+    mensagem.textContent = "";
+    mensagem.className =
+      "access-message";
+
+    if (!pin) {
+      mensagem.textContent =
+        "Digite o PIN de acesso.";
+
+      mensagem.classList.add(
+        "error"
+      );
+
+      input.focus();
+
+      return;
+    }
+
+    if (pin !== PIN_QTS) {
+      mensagem.textContent =
+        "PIN inválido.";
+
+      mensagem.classList.add(
+        "error"
+      );
+
+      input.select();
+
+      return;
+    }
+
+    botao.disabled = true;
+botao.textContent = "Carregando...";
+
+mensagem.textContent =
+  "Preparando programação e repertório...";
+
+mensagem.className =
+  "access-message success";
+
+  const barra =
+  document.getElementById(
+    "qts-loading-bar"
+  );
+
+if (barra) {
+  barra.classList.remove(
+    "is-hidden"
+  );
+}
+
+    localStorage.setItem(
+      CHAVE_SESSAO_QTS,
+      "sim"
+    );
+
+    await iniciarQts();
+  };
+
+  botao.addEventListener(
+    "click",
+    tentarEntrar
+  );
+
+  input.addEventListener(
+    "keydown",
+    (event) => {
+      if (event.key === "Enter") {
+        tentarEntrar();
+      }
+    }
+  );
+
+  input.focus();
 }

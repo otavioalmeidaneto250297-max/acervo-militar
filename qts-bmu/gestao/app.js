@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", iniciarGestao);
 const API_URL =
   "https://script.google.com/macros/s/AKfycbzL7ttaSBeu6hinpf3_0W149UBG9PMXDkpak16e8i_kxknueOCKzjWU5Ny6d9LMIjES/exec";
 
+  const PIN_QTS = "1234";
+
 const estadoGestao = {
   catalogo: [],
   repertorioAtual: [],
@@ -12,91 +14,27 @@ const estadoGestao = {
 };
 
 function iniciarGestao() {
-  const form = document.getElementById("access-form");
-  const pinInput = document.getElementById("management-pin");
-  const message = document.getElementById("access-message");
-  const preview = document.getElementById("management-preview");
 
-  if (!form || !pinInput || !message || !preview) {
-    console.error(
-      "Elementos principais da gestão não encontrados."
-    );
+if (
+  localStorage.getItem(
+    "qts_autenticado"
+  ) !== "sim"
+) {
 
-    return;
-  }
+  window.location.href =
+    "../index.html";
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  return;
 
-    const pin = pinInput.value.trim();
+}
 
-    message.className = "access-message";
-    preview.classList.add("is-hidden");
-
-    if (!pin) {
-      message.textContent = "Digite o código de gestão.";
-      message.classList.add("error");
-
-      return;
-    }
-
-    message.textContent = "Validando acesso...";
-
-    try {
-      const resultado = await validarPin(pin);
-
-      if (!resultado.sucesso) {
-        message.textContent =
-          resultado.mensagem || "PIN inválido.";
-
-        message.className = "access-message error";
-        pinInput.select();
-        return;
-      }
-
-      message.textContent = "Carregando painel...";
-      message.className = "access-message success";
-
-      await carregarDadosGestao();
-
-      preview.classList.remove("is-hidden");
-
-      message.textContent = "Acesso autorizado.";
-      message.className = "access-message success";
-    } catch (erro) {
-      console.error("Erro ao validar acesso:", erro);
-
-      message.textContent =
-        "Não foi possível validar o acesso.";
-
-      message.className = "access-message error";
-    }
-  });
+carregarDadosGestao();
 
   configurarPesquisa();
   configurarObraAvulsa();
   configurarBotaoSalvar();
   configurarBotaoProgramacao();
   configurarBotaoNovaAtividade();
-}
-
-async function validarPin(pin) {
-  const resposta = await fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
-    },
-    body: JSON.stringify({
-      acao: "validarPin",
-      pin
-    })
-  });
-
-  if (!resposta.ok) {
-    throw new Error(`Erro HTTP ${resposta.status}`);
-  }
-
-  return resposta.json();
 }
 
 async function carregarDadosGestao() {
@@ -1375,20 +1313,12 @@ function configurarBotaoSalvar() {
   }
 
   botao.addEventListener("click", async () => {
-    const pin =
-      document
-        .getElementById("management-pin")
-        ?.value.trim();
+    const pin = PIN_QTS;
 
     const responsavel =
       document
         .getElementById("responsavel-publicacao-select")
         ?.value.trim();
-
-    if (!pin) {
-      mostrarToast("Digite o PIN de gestão.", "error",);
-      return;
-    }
 
     if (!responsavel) {
       mostrarToast("Selecione o responsável pela atualização.", "error",);
