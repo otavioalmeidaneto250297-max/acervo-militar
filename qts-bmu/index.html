@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação da Banda | BACG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="qts-access-screen" class="qts-access-screen is-hidden">
+
+  <div class="qts-access-card">
+
+    <div class="qts-brand">
+      <span class="qts-brand-name">Acervo Militar</span>
+      <span class="qts-brand-module">QTS BMU</span>
+    </div>
+
+    <h1>Acesso ao QTS</h1>
+
+    <p>
+      Este módulo é destinado aos integrantes
+      da Banda de Música da BACG.
+    </p>
+
+    <label for="qts-pin">
+      PIN de acesso
+    </label>
+
+    <input
+      id="qts-pin"
+      type="password"
+      autocomplete="off">
+
+    <button id="btn-qts-access">
+
+      Entrar
+
+    </button>
+
+    <p
+      id="qts-access-message"
+      class="access-message">
+    </p>
+
+    <div
+  id="qts-loading-bar"
+  class="qts-loading-bar is-hidden">
+</div>
+
+  </div>
+
+</div>
+
+  <header class="qts-header">
+    <div class="qts-header-content">
+      <div class="qts-brand">
+        <span class="qts-brand-name">Acervo Militar</span>
+        <span class="qts-brand-module">QTS BMU</span>
+      </div>
+
+      <div class="qts-header-text">
+        <h1>Programação Semanal — Banda de Música</h1>
+        <p>BACG</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="qts-main">
+
+    <section class="qts-section qts-week-section">
+      <div class="section-heading">
+        <span class="section-label">Período vigente</span>
+        <h2>Semana</h2>
+      </div>
+
+      <div id="semana">
+        Carregando...
+      </div>
+    </section>
+
+    <section class="qts-section">
+      <div class="section-heading">
+        <span class="section-label">Agenda</span>
+        <h2>Programação</h2>
+      </div>
+
+      <div id="programacao">
+        Carregando programação...
+      </div>
+    </section>
+
+    <section class="qts-section">
+      <div class="section-heading">
+        <span class="section-label">Estudo e preparação</span>
+        <h2>Repertório</h2>
+      </div>
+
+      <div id="repertorio">
+        Carregando repertório...
+      </div>
+
+      <div id="status-sincronizacao" class="status-sincronizacao">
+        Sincronizando...
+      </div>
+    </section>
+
+  </main>
+
+  <div class="qts-navigation-actions">
+    <a
+      class="qts-discreet-link"
+      href="gestao/index.html"
+    >
+      Gestão
+    </a>
+  </div>
+
+  <footer class="qts-footer">
+    <p><strong>Acervo Militar</strong></p>
+    <p>Programação da Banda de Música — Projeto piloto</p>
+    <p>
+      O QTS oficial continua sendo o documento distribuído pela Organização.
+    </p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="googleSheets.js"></script>
+  <script src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão do Repertório | BACG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="management-header">
+    <div class="management-header-content">
+
+      <div class="management-brand">
+        <span class="management-brand-name">Acervo Militar</span>
+        <span class="management-brand-module">Gestão BACG</span>
+      </div>
+
+      <div class="management-header-text">
+        <h1>Gestão da Banda de Música</h1>
+        <p>Programação e repertório semanal</p>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="management-main">
+
+    <section class="management-card introduction-card">
+      <span class="section-label">Área administrativa</span>
+      <h2>Modo Gestão</h2>
+      <p>Esta área será utilizada pelo chefe, suboficiais e auxiliares autorizados para atualizar a programação e o repertório da semana.</p>
+      <p>Nesta etapa, as seleções ainda não alteram a planilha publicada.</p>
+    </section>
+
+    <section id="management-preview" class="management-card management-preview">
+      <span class="section-label">Modo Gestão</span>
+      <h2>Painel do Gestor</h2>
+
+      <div class="management-panel">
+
+        <div class="panel-block">
+          <div class="panel-heading"></div>
+          <h3>Programação da Semana</h3>
+          <button class="primary-button" id="btn-programacao" type="button">Editar programação</button>
+
+          <div id="painel-programacao" class="programacao-editor is-hidden">
+            <div class="programacao-toolbar">
+              <button id="btn-nova-atividade" class="primary-button" type="button">
+                + Nova atividade
+              </button>
+            </div>
+
+            <div id="lista-programacao">
+              <p class="loading-message">Carregando programação...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-block">
+          <div class="panel-heading">
+            <div>
+              <h3>Repertório da Semana</h3>
+              <p>Pesquise e selecione as obras que aparecerão no QTS.</p>
+            </div>
+            <span id="selected-counter" class="selected-counter">0 selecionadas</span>
+          </div>
+
+          <div class="catalog-search">
+            <label for="catalog-search-input">Pesquisar por número, título ou categoria</label>
+            <input
+              id="catalog-search-input"
+              type="search"
+              placeholder="Ex.: 38, Batista de Melo ou Dobrado"
+              autocomplete="off"
+            >
+          </div>
+
+          <div id="lista-obras">
+            <p class="loading-message">Carregando catálogo...</p>
+          </div>
+        </div>
+
+        <!-- Repertório selecionado -->
+        <div class="panel-block">
+          <div class="panel-heading">
+            <div>
+              <h3>Repertório selecionado</h3>
+              <p>Organize a ordem em que as obras aparecerão no QTS.</p>
+            </div>
+          </div>
+          <div id="repertorio-selecionado">
+            <p class="empty-message">Nenhuma obra selecionada.</p>
+          </div>
+        </div>
+
+        <!-- Adicionar obra avulsa -->
+        <div class="panel-block">
+          <div class="panel-heading">
+            <div>
+              <h3>Adicionar obra avulsa</h3>
+              <p>Use para músicas que não possuem número no caderno.</p>
+            </div>
+          </div>
+          <form id="obra-avulsa-form" class="obra-avulsa-form">
+            <label for="obra-avulsa-titulo">Nome da obra</label>
+            <input id="obra-avulsa-titulo" type="text" placeholder="Ex.: Marcha da Unidade" autocomplete="off">
+
+            <label for="obra-avulsa-observacao">Observação opcional</label>
+            <input id="obra-avulsa-observacao" type="text" placeholder="Ex.: Revisar introdução" autocomplete="off">
+
+            <button class="primary-button" type="submit">Adicionar obra avulsa</button>
+            <p id="obra-avulsa-message" class="access-message"></p>
+          </form>
+        </div>
+
+        <div class="panel-block">
+  <h3>Alterações</h3>
+
+  <p id="status-alteracoes">
+    Nenhuma alteração pendente.
+  </p>
+
+  <div class="responsavel-publicacao">
+
+    <label for="responsavel-publicacao-select">
+      Responsável pela atualização
+    </label>
+
+    <select id="responsavel-publicacao-select">
+
+      <option value="">
+        Selecione o responsável
+      </option>
+
+      <option value="Ten Daniel">
+        Ten Daniel
+      </option>
+
+      <option value="SO Escobar">
+        SO Escobar
+      </option>
+
+      <option value="SO Narley">
+        SO Narley
+      </option>
+
+      <option value="SO Belmiro">
+        SO Belmiro
+      </option>
+
+      <option value="SO Fabrício">
+        SO Fabrício
+      </option>
+
+    </select>
+
+  </div>
+</div>
+
+<button
+  class="primary-button"
+  id="btn-salvar"
+  type="button"
+>
+  Salvar alterações
+</button>
+
+        <div id="toast-message" class="toast-message"></div>
+
+      </div>
+    </section>
+
+    <div class="management-actions">
+
+  <a
+    class="secondary-link"
+    href="../index.html">
+
+    ← Voltar ao QTS
+
+  </a>
+
+  <a
+    class="secondary-link"
+    href="../../index.html">
+
+    ← Voltar ao AMMB
+
+  </a>
+
+</div>
+
+  </main>
+
+  <footer class="management-footer">
+    <p><strong>Acervo Militar</strong></p>
+    <p>Módulo de gestão da Banda de Música — BACG</p>
+    <p>Versão experimental em desenvolvimento</p>
+  </footer>
+
+  <script src="../config.js"></script>
+  <script src="../googleSheets.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

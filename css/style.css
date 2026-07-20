@@ -865,3 +865,111 @@ footer strong {
   font-size: 0.82rem !important;
   font-weight: 700;
 }
+
+/* ==========================================
+   MÓDULO QTS
+========================================== */
+
+.featured-module{
+
+  margin:32px 0;
+
+}
+
+.featured-module-card{
+
+  background:linear-gradient(
+    135deg,
+    #1d3158,
+    #243d6b
+  );
+
+  border:1px solid #3467d6;
+
+  border-radius:18px;
+
+  padding:32px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:32px;
+
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+}
+
+.featured-label{
+
+  display:inline-block;
+
+  margin-bottom:12px;
+
+  color:#8ec5ff;
+
+  font-size:.82rem;
+
+  font-weight:700;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+
+}
+
+.featured-module-info h2{
+
+  margin:0 0 14px;
+
+  font-size:2rem;
+
+}
+
+.featured-module-info p{
+
+  max-width:640px;
+
+  line-height:1.7;
+
+  color:#d5e2ff;
+
+}
+
+.featured-button{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  min-width:180px;
+
+  min-height:54px;
+
+  font-size:1.05rem;
+
+  font-weight:700;
+
+}
+
+@media(max-width:900px){
+
+  .featured-module-card{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+  }
+
+  .featured-button{
+
+    width:100%;
+
+  }
+
+}
