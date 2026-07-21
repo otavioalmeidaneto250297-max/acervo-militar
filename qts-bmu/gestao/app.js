@@ -188,6 +188,17 @@ function renderizarCatalogo(filtro = "") {
   const termo =
     normalizarTexto(filtro);
 
+    if (!termo) {
+  listaObras.innerHTML = `
+    <p class="empty-message">
+      Digite o número, o título ou a categoria
+      da obra que deseja encontrar.
+    </p>
+  `;
+
+  return;
+}
+
   const obrasFiltradas =
     estadoGestao.catalogo.filter((obra) => {
       const numero =
@@ -204,7 +215,7 @@ function renderizarCatalogo(filtro = "") {
         titulo.includes(termo) ||
         categoria.includes(termo)
       );
-    });
+    }).slice(0, 20);
 
   if (obrasFiltradas.length === 0) {
     listaObras.innerHTML = `
@@ -216,9 +227,39 @@ function renderizarCatalogo(filtro = "") {
     return;
   }
 
-  listaObras.innerHTML =
-    obrasFiltradas
-      .map((obra) => {
+  const quantidadeTotal =
+  estadoGestao.catalogo.filter((obra) => {
+    const numero =
+      normalizarTexto(obra.numero);
+
+    const titulo =
+      normalizarTexto(obra.titulo);
+
+    const categoria =
+      normalizarTexto(obra.categoria);
+
+    return (
+      numero.includes(termo) ||
+      titulo.includes(termo) ||
+      categoria.includes(termo)
+    );
+  }).length;
+
+  listaObras.innerHTML = `
+  ${
+    quantidadeTotal > 20
+      ? `
+        <p class="catalog-results-message">
+          Exibindo 20 de ${quantidadeTotal} resultados.
+          Refine a pesquisa para encontrar outras obras.
+        </p>
+      `
+      : ""
+  }
+
+  ${obrasFiltradas
+    .map((obra) => {
+
         const numero =
           String(
             obra.numero || ""
@@ -293,7 +334,8 @@ function renderizarCatalogo(filtro = "") {
           </label>
         `;
       })
-      .join("");
+      .join("")}
+      `;
 
   configurarCheckboxes();
 }
