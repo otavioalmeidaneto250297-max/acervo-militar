@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", iniciarGestao);
 const API_URL =
   "https://script.google.com/macros/s/AKfycbzL7ttaSBeu6hinpf3_0W149UBG9PMXDkpak16e8i_kxknueOCKzjWU5Ny6d9LMIjES/exec";
 
-  const PIN_QTS = "1234";
+  const PIN_QTS = "QTSBMU26";
+  
+  let temporizadorToast = null;
 
 const estadoGestao = {
   catalogo: [],
@@ -28,13 +30,11 @@ if (
 
 }
 
-carregarDadosGestao();
+  carregarDadosGestao();
 
   configurarPesquisa();
   configurarObraAvulsa();
   configurarBotaoSalvar();
-  configurarBotaoProgramacao();
-  configurarBotaoNovaAtividade();
 }
 
 async function carregarDadosGestao() {
@@ -117,6 +117,8 @@ const {
   renderizarRepertorioSelecionado();
   atualizarContador();
   atualizarStatusAlteracoes();
+
+  iniciarProgramacaoSemanal();
 }
 
 function transformarRepertorioAtual() {
@@ -889,395 +891,6 @@ function atualizarStatusAlteracoes() {
   }
 }
 
-function configurarBotaoProgramacao() {
-
-  const botao =
-    document.getElementById(
-      "btn-programacao"
-    );
-
-  const painel =
-    document.getElementById(
-      "painel-programacao"
-    );
-
-  if (!botao || !painel) {
-    return;
-  }
-
-  botao.addEventListener("click", () => {
-
-    const aberto =
-      !painel.classList.contains(
-        "is-hidden"
-      );
-
-    if (aberto) {
-
-      painel.classList.add("is-hidden");
-
-      botao.textContent =
-        "Editar programação";
-
-      return;
-
-    }
-
-    renderizarEditorProgramacao();
-
-    painel.classList.remove(
-      "is-hidden"
-    );
-
-    botao.textContent =
-      "Fechar programação";
-
-  });
-
-}
-
-function renderizarEditorProgramacao() {
-  const painel =
-    document.getElementById("lista-programacao");
-
-  if (!painel) {
-    return;
-  }
-
-  if (estadoGestao.programacaoAtual.length === 0) {
-    painel.innerHTML = `
-      <p class="empty-message">
-        Nenhuma atividade encontrada.
-      </p>
-    `;
-
-    return;
-  }
-
-  painel.innerHTML =
-    estadoGestao.programacaoAtual
-      .map((atividade, indice) =>
-        renderizarCardProgramacao(atividade, indice)
-      )
-      .join("");
-
-  configurarCamposProgramacao();
-  configurarBotoesOrdenacaoProgramacao();
-  configurarBotoesRemoverProgramacao();
-}
-
-function renderizarCardProgramacao(atividade, indice) {
-  return `
-    <article class="programacao-editor-item">
-
-      <div class="programacao-editor-order">
-        ${indice + 1}
-      </div>
-
-      <div class="programacao-editor-fields">
-
-        <label>
-          Dia
-          <input
-            type="text"
-            class="programacao-input"
-            data-index="${indice}"
-            data-campo="dia"
-            value="${escaparAtributo(atividade.dia || "")}"
-          >
-        </label>
-
-        <label>
-          Data
-          <input
-            type="text"
-            class="programacao-input"
-            data-index="${indice}"
-            data-campo="data"
-            value="${escaparAtributo(atividade.data || "")}"
-            placeholder="Ex.: 13/07"
-          >
-        </label>
-
-        <label>
-          Horário
-          <input
-            type="text"
-            class="programacao-input"
-            data-index="${indice}"
-            data-campo="horario"
-            value="${escaparAtributo(atividade.horario || "")}"
-            placeholder="Ex.: 09:00"
-          >
-        </label>
-
-        <label>
-          Atividade
-          <input
-            type="text"
-            class="programacao-input"
-            data-index="${indice}"
-            data-campo="atividade"
-            value="${escaparAtributo(atividade.atividade || "")}"
-            placeholder="Ex.: Ensaio"
-          >
-        </label>
-
-        <label>
-          Local
-          <input
-            type="text"
-            class="programacao-input"
-            data-index="${indice}"
-            data-campo="local"
-            value="${escaparAtributo(atividade.local || "")}"
-            placeholder="Ex.: Sala da Banda"
-          >
-        </label>
-
-        <label>
-          Observação
-          <input
-            type="text"
-            class="programacao-input"
-            data-index="${indice}"
-            data-campo="observacao"
-            value="${escaparAtributo(atividade.observacao || "")}"
-            placeholder="Observação opcional"
-          >
-        </label>
-
-      </div>
-
-      <div class="programacao-editor-actions">
-        <button
-          type="button"
-          class="order-button programacao-order-button"
-          data-action="up"
-          data-index="${indice}"
-          aria-label="Mover atividade para cima"
-          ${indice === 0 ? "disabled" : ""}
-  >
-    ↑
-  </button>
-
-  <button
-    type="button"
-    class="order-button programacao-order-button"
-    data-action="down"
-    data-index="${indice}"
-    aria-label="Mover atividade para baixo"
-    ${
-      indice === estadoGestao.programacaoAtual.length - 1
-        ? "disabled"
-        : ""
-    }
-    >
-    ↓
-  </button>
-
-  <button
-    type="button"
-    class="remove-button programacao-remove-button"
-    data-index="${indice}"
-        >
-          Remover atividade
-        </button>
-      </div>
-
-    </article>
-  `;
-}
-
-function configurarCamposProgramacao() {
-  const campos =
-    document.querySelectorAll(".programacao-input");
-
-  campos.forEach((campo) => {
-    campo.addEventListener("input", () => {
-      const indice = Number(campo.dataset.index);
-      const nomeCampo = campo.dataset.campo;
-
-      const atividade =
-        estadoGestao.programacaoAtual[indice];
-
-      if (!atividade || !nomeCampo) {
-        return;
-      }
-
-      atividade[nomeCampo] = campo.value;
-
-      estadoGestao.alteracoesPendentes = true;
-      atualizarStatusAlteracoes();
-    });
-  });
-}
-
-function configurarBotoesOrdenacaoProgramacao() {
-
-  const botoes =
-    document.querySelectorAll(
-      ".programacao-order-button"
-    );
-
-  botoes.forEach((botao) => {
-
-    botao.addEventListener("click", () => {
-
-      const indice =
-        Number(botao.dataset.index);
-
-      const acao =
-        botao.dataset.action;
-
-      if (
-        !Number.isInteger(indice)
-      ) {
-        return;
-      }
-
-      if (
-        acao === "up" &&
-        indice > 0
-      ) {
-
-        [
-          estadoGestao.programacaoAtual[indice - 1],
-          estadoGestao.programacaoAtual[indice]
-        ] = [
-
-          estadoGestao.programacaoAtual[indice],
-          estadoGestao.programacaoAtual[indice - 1]
-
-        ];
-
-      }
-
-      if (
-        acao === "down" &&
-        indice <
-          estadoGestao.programacaoAtual.length - 1
-      ) {
-
-        [
-          estadoGestao.programacaoAtual[indice + 1],
-          estadoGestao.programacaoAtual[indice]
-        ] = [
-
-          estadoGestao.programacaoAtual[indice],
-          estadoGestao.programacaoAtual[indice + 1]
-
-        ];
-
-      }
-
-      estadoGestao.alteracoesPendentes =
-        true;
-
-      renderizarEditorProgramacao();
-
-      atualizarStatusAlteracoes();
-
-    });
-
-  });
-
-}
-
-function configurarBotoesRemoverProgramacao() {
-  const botoes = document.querySelectorAll(
-    ".programacao-remove-button"
-  );
-
-  botoes.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      const indice = Number(botao.dataset.index);
-
-      if (
-        !Number.isInteger(indice) ||
-        !estadoGestao.programacaoAtual[indice]
-      ) {
-        return;
-      }
-
-      const atividade =
-        estadoGestao.programacaoAtual[indice];
-
-      const possuiConteudo = [
-        atividade.dia,
-        atividade.data,
-        atividade.horario,
-        atividade.atividade,
-        atividade.local,
-        atividade.observacao
-      ].some((valor) => String(valor || "").trim());
-
-      if (possuiConteudo) {
-        const confirmar = window.confirm(
-          "Deseja remover esta atividade da programação?"
-        );
-
-        if (!confirmar) {
-          return;
-        }
-      }
-
-      estadoGestao.programacaoAtual.splice(indice, 1);
-      estadoGestao.alteracoesPendentes = true;
-
-      renderizarEditorProgramacao();
-      atualizarStatusAlteracoes();
-    });
-  });
-}
-
-function configurarBotaoNovaAtividade() {
-
-  const botao =
-    document.getElementById(
-      "btn-nova-atividade"
-    );
-
-  if (!botao) {
-    return;
-  }
-
-  botao.addEventListener(
-    "click",
-    () => {
-
-      estadoGestao.programacaoAtual.push({
-
-        dia: "",
-
-        data: "",
-
-        horario: "",
-
-        atividade: "",
-
-        local: "",
-
-        observacao: "",
-
-        mostrar: "SIM"
-
-      });
-
-      estadoGestao.alteracoesPendentes =
-        true;
-
-      atualizarStatusAlteracoes();
-
-      renderizarEditorProgramacao();
-
-    }
-  );
-
-}
-
-let temporizadorToast = null;
-
 function mostrarToast(mensagem, tipo = "success") {
   const toast =
     document.getElementById("toast-message");
@@ -1348,6 +961,7 @@ function configurarBotaoSalvar() {
           horario: item.horario || "",
           atividade: item.atividade || "",
           local: item.local || "",
+          uniforme: item.uniforme || "",
           observacao: item.observacao || "",
           mostrar: "SIM"
         })

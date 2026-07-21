@@ -42,22 +42,49 @@
       <div class="management-panel">
 
         <div class="panel-block">
-          <div class="panel-heading"></div>
-          <h3>Programação da Semana</h3>
-          <button class="primary-button" id="btn-programacao" type="button">Editar programação</button>
 
-          <div id="painel-programacao" class="programacao-editor is-hidden">
-            <div class="programacao-toolbar">
-              <button id="btn-nova-atividade" class="primary-button" type="button">
-                + Nova atividade
-              </button>
-            </div>
+  <div class="panel-heading">
+    <div>
+      <h3>Programação da Semana</h3>
 
-            <div id="lista-programacao">
-              <p class="loading-message">Carregando programação...</p>
-            </div>
-          </div>
-        </div>
+      <p>
+        Selecione a semana e organize as atividades dentro de cada dia.
+      </p>
+    </div>
+  </div>
+
+  <div id="painel-programacao" class="programacao-editor">
+
+    <div class="semana-programacao-controles">
+
+      <div class="semana-programacao-centro">
+
+        <label for="inicio-semana-input">
+          Início da semana
+        </label>
+
+        <input
+          id="inicio-semana-input"
+          type="date"
+        >
+
+        <strong id="periodo-semana-texto">
+          Semana não selecionada
+        </strong>
+
+      </div>
+
+    </div>
+
+    <div id="lista-programacao-semanal">
+      <p class="loading-message">
+        Carregando programação...
+      </p>
+    </div>
+
+  </div>
+
+</div>
 
         <div class="panel-block">
           <div class="panel-heading">
@@ -201,8 +228,66 @@
     <p>Versão experimental em desenvolvimento</p>
   </footer>
 
+  <datalist id="lista-horarios">
+
+  <option value="07:45">
+  <option value="07:50">
+  <option value="08:15">
+  <option value="08:30">
+  <option value="08:45">
+  <option value="09:00">
+  <option value="09:15">
+  <option value="09:30">
+  <option value="09:45">
+  <option value="10:00">
+  <option value="10:15">
+  <option value="10:30">
+  <option value="10:45">
+  <option value="11:00">
+  <option value="11:15">
+  <option value="11:30">
+  <option value="11:55">
+  <option value="12:00">
+  <option value="13:30">
+  <option value="14:00">
+  <option value="14:30">
+  <option value="15:00">
+  <option value="15:55">
+
+</datalist>
+
+<datalist id="lista-atividades">
+
+  <option value="Chamada">
+  <option value="Ensaio">
+  <option value="Formatura">
+  <option value="Reunião">
+  <option value="Apresentação">
+
+</datalist>
+
+<datalist id="lista-locais">
+
+  <option value="Sala de Ensaio">
+  <option value="Pátio Operacional">
+  
+
+</datalist>
+
+<datalist id="lista-uniformes">
+
+  <option value="5º A">
+  <option value="5º B">
+  <option value="7º A">
+  <option value="7º B">
+  <option value="9º">
+  <option value="10º">
+
+</datalist>
+
   <script src="../config.js"></script>
   <script src="../googleSheets.js"></script>
+  <script src="programacao.js"></script>
   <script src="app.js"></script>
 
 </body>

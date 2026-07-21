@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", iniciarQts);
 
-const INTERVALO_ATUALIZACAO = 5000;
+const INTERVALO_ATUALIZACAO = 30000;
 
-const PIN_QTS = "1234";
+const PIN_QTS = "QTSBMU26";
 
 const CHAVE_SESSAO_QTS =
   "qts_autenticado";
@@ -56,7 +56,7 @@ if (!verificarSessaoQts()) {
 
   try {
     const resposta = await fetch(
-      `${API_QTS}?acao=carregarQts&t=${Date.now()}`,
+      `${API_QTS}?acao=carregarQts`,
       {
         cache: "no-store"
       }
@@ -174,7 +174,7 @@ function iniciarAtualizacaoAutomatica() {
 async function atualizarQtsSilenciosamente() {
   try {
     const resposta = await fetch(
-      `${API_QTS}?acao=carregarQts&t=${Date.now()}`,
+      `${API_QTS}?acao=carregarQts`,
       {
         cache: "no-store"
       }
